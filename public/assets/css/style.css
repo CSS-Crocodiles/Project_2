@@ -1,11 +1,17 @@
 :root {
   --bg: rgba(86, 101, 115,.6);
+  --rc: rgba(63, 108, 150, 0.6);
   --nb: rgba(16, 110, 197, 0.6);
 
 }
 
 .navbar {
   background-color: var(--nb) !important;
+}
+
+.regicard{
+  background-color: var(--rc) !important;
+
 }
 
 body {
@@ -50,7 +56,7 @@ body {
   margin-top: 10%;
   background: var(--bg);
   height:100%;
-  border-radius: .25rem;
+  border-radius: 20px;
   margin-bottom: 2%;
   width: 600px;
 }
