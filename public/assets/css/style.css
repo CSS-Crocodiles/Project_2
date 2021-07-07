@@ -1,6 +1,11 @@
 :root {
   --bg: rgba(86, 101, 115,.6);
+  --nb: rgba(16, 110, 197, 0.6);
 
+}
+
+.navbar {
+  background-color: var(--nb) !important;
 }
 
 body {
