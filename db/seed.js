@@ -30,9 +30,24 @@ module.exports = (db) => {
             trail_name: 'sample trail',
             address: '1234 pretty trail lane',
             UserId: 2
-          });
+          }).then(() => {
+            db.parks.create({
+              id: 1,
+              park_name: 'sample park',
+              address: '1234 pretty park lane',
+              UserId: 2
+            }).then(() => {
+              db.museums.create({
+                id: 1,
+                museum_name: 'the best museum',
+                address: '1234 pretty museum',
+                cost: 20,
+                hours: 10,
+                UserId: 2
+              });
         });
       });
     });
   });
-};
+});
+  })};
