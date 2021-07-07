@@ -4,6 +4,7 @@
   "description": "Project2 Starter with Express, Handlebars, Sequelize, and Authentication with Passport.",
   "main": "server.js",
   "scripts": {
+    "seed": "node ./db/seed.js",
     "start": "node server.js",
     "lint": "eslint . --ext .js --quiet",
     "fix": "eslint --fix .",
