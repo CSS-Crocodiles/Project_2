@@ -6,6 +6,9 @@ module.exports = (passport, db) => {
   const AppController = require('../controllers/appController')(db);
 
   // Authentication
+  // NOTES FROM KATELIN:
+  // looks like all of the GETs, POSTs, PUTs, DELETES are written in
+  // 'controllers/authController' to make sure the user info is secure
   router.post('/register', AuthController.register);
   router.post('/login', AuthController.login);
   router.get('/logout', AuthController.logout);
@@ -14,6 +17,7 @@ module.exports = (passport, db) => {
   router.post('/user/confirm', AuthController.confirmAuth);
 
   // App
+  // NOTES FROM KATELIN:
   // HERE IS WHERE WE NEED TO ADD OUR API ROUTES:
   // Don't think we need to do many more CRUD for USER bc its under AUTHENTICATION
   // from each user's homepage do they have a link to each trip they've created based
