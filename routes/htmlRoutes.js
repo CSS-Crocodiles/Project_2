@@ -2,6 +2,8 @@ const router = require('express').Router();
 
 module.exports = (db) => {
   // Load register page
+  // NOTES FROM KATELIN: this is connected to 'views/register.handlebars' and
+  // 'controls/authControler' - bc there is a catch is the email is already in use.
   router.get('/register', (req, res) => {
     if (req.isAuthenticated()) {
       res.redirect('/profile');
@@ -11,6 +13,10 @@ module.exports = (db) => {
   });
 
   // Load profile page
+  // NOTES FROM KATELIN: Based on the profile.handlebars page is looks like this html route
+  // gives us the profile page where a user can update their profile info (email, name, etc)
+  // and that seems to be connected to the 'controllers/authControler' file where the
+  // 'update user' is located
   router.get('/profile', (req, res) => {
     if (req.isAuthenticated()) {
       db.User.findOne({
@@ -44,6 +50,8 @@ module.exports = (db) => {
   });
 
   // Load dashboard page
+  // NOTES FROM KATELIN: this looks like the page we could use to have the list of
+  // the individual user's trips. Its connected to 'views/dashboard.handlebars'
   router.get('/dashboard', (req, res) => {
     if (req.isAuthenticated()) {
       const user = {
@@ -57,6 +65,9 @@ module.exports = (db) => {
   });
 
   // Load example index page
+  // NOTES FROM KATELIN: This looks like the page we could use to display a user's
+  // individual trips maybe? So instead of 'db.Example.findALL' it could be 'db.Location'
+  // connected to 'views/example.handlebars'
   router.get('/example', function (req, res) {
     if (req.isAuthenticated()) {
       db.Example.findAll({ where: { UserId: req.session.passport.user.id }, raw: true }).then(function (dbExamples) {
@@ -73,6 +84,11 @@ module.exports = (db) => {
   });
 
   // Load example page and pass in an example by id
+  // NOTES FROM KATELIN: here is the individual examples, so maybe the locations by id?
+  // we could also take it further for when the user clicks on the museums, or parks, or
+  // trails, or restaurants they's saved, then they are taken to that restaurant.id page
+  // using this as a base model?
+  // Connected to 'views/example-detail.handlebars'
   router.get('/example/:id', function (req, res) {
     if (req.isAuthenticated()) {
       db.Example.findOne({ where: { id: req.params.id }, raw: true }).then(function (dbExample) {
@@ -88,6 +104,10 @@ module.exports = (db) => {
   });
 
   // Logout
+  // NOTES FROM KATELIN: Looks like there IS NOT a handlebar for this yet. BUT at the
+  // top of 'views/nav/nav-block.handlebars' there is a '/logout' option. We just need
+  // to decide what our logout page looks like - does it ask if you want to be directed
+  // to the login page?
   router.get('/logout', (req, res, next) => {
     req.logout();
     req.session.destroy((err) => {
@@ -100,6 +120,10 @@ module.exports = (db) => {
   });
 
   // Render 404 page for any unmatched routes
+  // NOTES FROM KATELIN: This one is 'views/404.handlebars' and its our
+  // straightforward 404 user error page! Maybe you guys could look up something
+  // fun to put here? Maybe an api that changes to a diff NC picture everytime
+  // it appears? Might be more work that we want but worth a thought :)
   router.get('*', function (req, res) {
     res.render('404');
   });
