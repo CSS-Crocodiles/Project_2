@@ -36,5 +36,23 @@ module.exports = function (sequelize, DataTypes) {
     });
   };
 
+  Location.associate = function (models) {
+    Location.hasMany(models.museums, {
+      onDelete: 'cascade'
+    });
+  };
+
+  Location.associate = function (models) {
+    Location.hasMany(models.restaurant, {
+      onDelete: 'cascade'
+    });
+  };
+
+  Location.associate = function (models) {
+    Location.hasMany(models.trails, {
+      onDelete: 'cascade'
+    });
+  };
+
   return Location;
 };
