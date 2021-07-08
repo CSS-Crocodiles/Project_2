@@ -122,3 +122,14 @@ router.get('/new', (req, res, next) => {
   }
 });
 
+router.get('/materialize', (req, res, next) => {
+  if (req.isAuthenticated()) {
+    const user = {
+      user: req.session.passport.user,
+      isloggedin: req.isAuthenticated()
+    };
+    res.render('materialize', user);
+  } else {
+    res.render('materialize');
+  }
+});
