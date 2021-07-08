@@ -4,6 +4,7 @@ const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
 module.exports = (passport, db) => {
   const AuthController = require('../controllers/authController')(passport, db);
   const AppController = require('../controllers/appController')(db);
+  const GoogleController = require('../controllers/appController')(db);
 
   // Authentication
   // NOTES FROM KATELIN:
@@ -69,6 +70,7 @@ module.exports = (passport, db) => {
   router.get('/examples', AppController.getExamples);
   router.post('/examples', AppController.createExample);
   router.delete('/examples/:id', AppController.deleteExample);
+  router.get('/getGoogleData', GoogleController.getExamples);
 
   return router;
 };
