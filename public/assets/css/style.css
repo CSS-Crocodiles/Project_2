@@ -59,10 +59,9 @@ body {
   padding-bottom: 2%;
   margin-top: 10%;
   background: var(--bg);
-  height:100%;
   border-radius: 20px;
   margin-bottom: 2%;
-  margin-trim: 1%;
+  padding-top: 2%;
 }
 
 [data-useremail="true"] {
@@ -97,3 +96,9 @@ hr {
   margin: 15px;
 }
 
+.wow, .whoo, .wah {
+  background-color: rgba(220, 20, 60, 0.644);
+  color: black;
+  margin: 2px;
+
+}
