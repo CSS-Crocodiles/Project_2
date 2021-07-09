@@ -1,10 +1,15 @@
+const {Museums} = require('../models/museums');
+const {Trails} = require('../models/trails');
+const {Restaurants} = require('../models/restaurant')
+const {Parks} = require('../models/parks')
+const {Locations} = require('../models/location')
 module.exports = function (db) {
   return {
     // Get all locations
     getLocation: function (req, res) {
       db.Location.findAll({ where: { UserId: req.params.id, {
         // be sure to include its associated Products
-        include: [{model: museums}, {model: parks}, {model: trails}, {model: restaurant}]
+        include: [Museums, Trails, Parks, Restaurants]
       } 
     } }).then(function (dbLocations) {
         res.json(dbLocations);
