@@ -130,3 +130,30 @@ module.exports = (db) => {
 
   return router;
 };
+
+// Change to "new" for the handlebars I am creating.
+
+
+router.get('/new', (req, res, next) => {
+  if (req.isAuthenticated()) {
+    const user = {
+      user: req.session.passport.user,
+      isloggedin: req.isAuthenticated()
+    };
+    res.render('new', user);
+  } else {
+    res.render('new');
+  }
+});
+
+router.get('/materialize', (req, res, next) => {
+  if (req.isAuthenticated()) {
+    const user = {
+      user: req.session.passport.user,
+      isloggedin: req.isAuthenticated()
+    };
+    res.render('materialize', user);
+  } else {
+    res.render('materialize');
+  }
+});

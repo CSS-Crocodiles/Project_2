@@ -2,14 +2,15 @@
 
 <div id="main-container" class="container">
   <div class="jumbotron text-center header-wrap" align="center">
-    <p class="lead">Welcome to <strong>Sample App</strong></p>
+    <p class="lead">What's good <strong>TRAVELERS</strong></p>
     <hr class="my-4">
     <div>
       {{#if isloggedin}}
-        You are logged in as {{user.firstName}}
-        <a href="/logout"> <button type="btn" class="btn">Logout</button></a>
+        You are supposedly "{{user.firstName}}"... if not.....
+        <p class="panther"></p>
+        <div><a href="/logout"> <button type="btn" class="btn">Leave us....</button></a></div>
       {{else}}
-        <p>You need to log in to use this app.</p>
+        <p>You need to check it before continuing.</p>
       {{/if}}
       <h5 id="login-err-msg"></h5>
     </div>
