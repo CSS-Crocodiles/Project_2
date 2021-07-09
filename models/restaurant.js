@@ -27,7 +27,7 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   restaurants.associate = function (models) {
-    restaurants.belongsTo(models.User, {
+    restaurants.belongsTo(models.Location, {
       foreignKey: {
         allowNull: false
       }

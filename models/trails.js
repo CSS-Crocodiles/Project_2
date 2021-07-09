@@ -19,7 +19,7 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Trails.associate = function (models) {
-    Trails.belongsTo(models.User, {
+    Trails.belongsTo(models.Location, {
       foreignKey: {
         allowNull: false
       }

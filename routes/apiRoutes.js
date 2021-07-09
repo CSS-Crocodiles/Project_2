@@ -73,5 +73,6 @@ module.exports = (passport, db) => {
   router.delete('/examples/:id', AppController.deleteExample);
   router.get('/getGoogleData', GoogleController.getTrip);
 
+
   return router;
 };
