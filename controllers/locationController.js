@@ -1,21 +1,32 @@
 module.exports = function (db) {
   return {
-    // Get all examples
-    getExamples: function (req, res) {
-      db.Example.findAll({ where: { UserId: req.session.passport.user.id } }).then(function (dbExamples) {
-        res.json(dbExamples);
+    // Get all locations
+    getLocation: function (req, res) {
+      db.Location.findAll({ where: { UserId: req.params.id, {
+        // be sure to include its associated Products
+        include: [{model: museums}, {model: parks}, {model: trails}, {model: restaurant}]
+      } 
+    } }).then(function (dbLocations) {
+        res.json(dbLocations);
       });
     },
-    // Create a new example
-    createExample: function (req, res) {
-      db.Example.create(req.body).then(function (dbExample) {
-        res.json(dbExample);
+    // Get single Location
+    getSingleLocation: function (req, res) {
+      db.Location.findByPk({ where: { id: req.params.id } }).then(function (dbSingleLocation) {
+        res.json(dbSingleLocation);
+      });
+    },
+    // Create a new example HOW DO WE DO THIS ONE???
+    // first ask where do you want to go? - that could create this location
+    createLocation: function (req, res) {
+      db.Location.create(req.body).then(function (dbLocations) {
+        res.json(dbLocations);
       });
     },
     // Delete an example by id
-    deleteExample: function (req, res) {
-      db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
-        res.json(dbExample);
+    deleteLocation: function (req, res) {
+      db.Location.destroy({ where: { id: req.params.id } }).then(function (dbLocations) {
+        res.json(dbLocations);
       });
     }
   };
