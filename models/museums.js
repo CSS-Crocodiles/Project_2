@@ -27,7 +27,7 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   museums.associate = function (models) {
-    museums.belongsTo(models.User, {
+    museums.belongsTo(models.Location, {
       foreignKey: {
         allowNull: false
       }

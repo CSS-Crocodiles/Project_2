@@ -19,7 +19,7 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   parks.associate = function (models) {
-    parks.belongsTo(models.User, {
+    parks.belongsTo(models.Location, {
       foreignKey: {
         allowNull: false
       }
