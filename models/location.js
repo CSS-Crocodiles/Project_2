@@ -12,10 +12,13 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false
       },
-      date_created: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW
+      starting_date: {
+        type: DataTypes.DATEONLY,
+        allowNull: false
+      },
+      ending_date: {
+        type: DataTypes.DATEONLY,
+        allowNull: false
       },
       user_id: {
         type: DataTypes.INTEGER,

@@ -13,9 +13,10 @@ module.exports = (db) => {
       password: process.env.USER_PWD,
       isAdmin: false
     }).then(() => {
-      db.Example.create({
-        text: 'Sample item',
-        description: 'Adam can\'t see this',
+      db.Location.create({
+        location_name: 'example location',
+        starting_date: 'April 20, 2022',
+        ending_date: 'April 30, 2022',
         UserId: 2
       }).then(() => {
         db.restaurant.create({
