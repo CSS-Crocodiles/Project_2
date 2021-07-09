@@ -17,6 +17,7 @@ module.exports = (db) => {
   // gives us the profile page where a user can update their profile info (email, name, etc)
   // and that seems to be connected to the 'controllers/authControler' file where the
   // 'update user' is located
+  // for the googleController like this ASK JOHN P ABOUT THIS!!
   router.get('/profile', (req, res) => {
     if (req.isAuthenticated()) {
       db.User.findOne({
@@ -132,7 +133,6 @@ module.exports = (db) => {
 };
 
 // Change to "new" for the handlebars I am creating.
-
 
 router.get('/new', (req, res, next) => {
   if (req.isAuthenticated()) {
