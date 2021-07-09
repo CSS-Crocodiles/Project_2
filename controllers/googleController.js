@@ -1,22 +1,19 @@
-module.exports = function (db) {
+const axios = require('axios');
+
+module.exports = function () {
   return {
-    // Get all examples
-    getExamples: function (req, res) {
-      db.Example.findAll({ where: { UserId: req.session.passport.user.id } }).then(function (dbExamples) {
-        res.json(dbExamples);
-      });
-    },
-    // Create a new example
-    createExample: function (req, res) {
-      db.Example.create(req.body).then(function (dbExample) {
-        res.json(dbExample);
-      });
-    },
-    // Delete an example by id
-    deleteExample: function (req, res) {
-      db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
-        res.json(dbExample);
-      });
+    getTrip: async function (req, res) {
+      try {
+        const neighborhood = 'chelsea';
+        const borough = 'manhattan';
+        const city = 'new+york+city';
+        const category = 'burgers';
+        const { data } = await axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${category}+${neighborhood}+${borough}+${city}&type=restaurant&key=AIzaSyDTt9aaiFRWAsIfdmvIN7tCBSzVc-eDEmU`);
+        console.log(`--> RESPOSNE data:  ${data}`);
+        res.json(data);
+      } catch (err) {
+        console.log('ERROR IN CATCH', err);
+      }
     }
   };
 };
