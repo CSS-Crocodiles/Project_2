@@ -133,7 +133,6 @@ module.exports = (db) => {
 
 // Change to "new" for the handlebars I am creating.
 
-
 router.get('/new', (req, res, next) => {
   if (req.isAuthenticated()) {
     const user = {
@@ -155,5 +154,29 @@ router.get('/materialize', (req, res, next) => {
     res.render('materialize', user);
   } else {
     res.render('materialize');
+  }
+});
+
+router.get('/savedtrips', (req, res) => {
+  if (req.isAuthenticated()) {
+    const user = {
+      user: req.session.passport.user,
+      isloggedin: req.isAuthenticated()
+    };
+    res.render('savedtrips', user);
+  } else {
+    res.render('savedtrips');
+  }
+});
+
+router.get('/create', (req, res) => {
+  if (req.isAuthenticated()) {
+    const user = {
+      user: req.session.passport.user,
+      isloggedin: req.isAuthenticated()
+    };
+    res.render('create', user);
+  } else {
+    res.render('create');
   }
 });
