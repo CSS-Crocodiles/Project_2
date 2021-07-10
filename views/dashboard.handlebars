@@ -1,45 +1,128 @@
 {{> nav/nav-block}}
 
 
-
-<div id="main-container" class="container">
-  <div class="jumbotron text-center header-wrap" align="center">
-    <p class="lead">What's good <strong>TRAVELERS</strong></p>
-    <hr class="my-4">
-    {{!-- <div>
-      {{#if isloggedin}}
-        You are supposedly "{{user.firstName}}"... if not.....
-        <p class="panther"></p>
-        <div><a href="/logout"> <button type="btn" class="btn">Leave us....</button></a></div>
-      {{else}}
-        <p>You need to check it before continuing.</p>
-      {{/if}}
-      <h5 id="login-err-msg"></h5>
-    </div> --}}
+<div class="main container">
+  <div class="row">
+    <div class="lefty col s6">
+      <div class="jumbotron text-center header-wrap" align="center">
+        <p class="lead">What's good <strong>TRAVELERS</strong></p>
+        <hr class="my-4">
+        <div>
+          {{#if isloggedin}}
+            You are supposedly "{{user.firstName}}"... if not.....
+            <p class="panther"></p>
+            <div><a href="/logout"> <button type="btn" class="btn">Leave us....</button></a></div>
+          {{else}}
+            <div class="col s6">
+              <p>You need to check with <a class="nav-link" href="/login">THE ADMINISTRATION</a> before continuing.</p>
+              </div>
+            <div class="col s6">
+              <p>If not with the registry, <a class="nav-link" href="/login">APPLY</a></p>
+              </div>
+          {{/if}}
+          <h5 id="login-err-msg"></h5>
+        </div>
+      </div>
+    </div>
+    {{#if isloggedin}}
+    <div class="search col s6">
+      <form class="card card-sm">
+        <div class="card-body row no-gutters align-items-center">
+          <div class="col-auto">
+            <i class="fas fa-search h4 text-body"></i>
+          </div>
+          <div class="col">
+            <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="  I want to go...?">
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-lg btn-success" type="submit">Explore!</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    {{/if}}
   </div>
 </div>
 
-{{!-- <div id="main-container" class="container">
-  <div class="jumbotron text-center header-wrap" align="center">
-    <p class="lead">What's good <strong>TRAVELERS</strong></p>
-    <hr class="my-4">
-    <div>
-      {{#if isloggedin}}
-        You are supposedly "{{user.firstName}}"... if not.....
-        <p class="panther"></p>
-        <div><a href="/logout"> <button type="btn" class="btn">Leave us....</button></a></div>
-      {{else}}
-        <p>You need to check it before continuing.</p>
-      {{/if}}
-      <h5 id="login-err-msg"></h5>
+{{#if isloggedin}}
+<div class="base container">
+  <div class="row">
+      <div class="col s4">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-name">Developer Spot:</span>
+            <p class="cardp"></p>
+          </div>
+          <div class="card-action">
+            <div class="card-image">
+              <img src="http://materializecss.com/images/sample-1.jpg">
+              <a href="#" class="card-title">Go there <strong>NOW!</strong></a>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="col s4">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-name">Marketing Favorite:</span>
+            <p class="cardp"></p>
+          </div>
+          <div class="card-action">
+            <div class="card-image">
+              <img src="http://materializecss.com/images/sample-1.jpg">
+              <a href="#" class="card-title">Go there <strong>NOW!</strong></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="col s4">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-name">Support's Retreat:</span>
+          <p class="cardp"></p>
+        </div>
+        <div class="card-action">
+          <div class="card-image">
+            <img src="http://materializecss.com/images/sample-1.jpg">
+            <a href="#" class="card-title">Go there <strong>NOW!</strong></a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div> --}}
-{{!-- 
-<div class="container">
-    <br/>
-	<div class="row justify-content-center">
-                        <div class="col-12 col-md-10 col-lg-8">
+
+    <br><br> 
+{{/if}}
+
+{{> modal/login-block}}
+
+
+
+
+{{!-- <div id="main-container" class="container">
+  <div class="row">
+    <div class="col s6">
+      <div class="jumbotron text-center header-wrap" align="center">
+          <p class="lead">What's good <strong>TRAVELERS</strong></p>
+          <hr class="my-4">
+            <div>
+          {{#if isloggedin}}
+            You are supposedly "{{user.firstName}}"... if not.....
+            <p class="panther"></p>
+            <div><a href="/logout"> <button type="btn" class="btn">Leave us....</button></a></div>
+          {{else}}
+            <p>You need to check it before continuing.</p>
+          {{/if}}
+          <h5 id="login-err-msg"></h5>
+        </div>
+      </div>
+    </div>
+  </div> --}}
+
+                            {{!-- <div class="col s6">
                             <form class="card card-sm">
                                 <div class="card-body row no-gutters align-items-center">
                                     <div class="col-auto">
@@ -47,11 +130,11 @@
                                     </div>
                                     <!--end of col-->
                                     <div class="col">
-                                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
+                                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="  I want to be...?">
                                     </div>
                                     <!--end of col-->
                                     <div class="col-auto">
-                                        <button class="btn btn-lg btn-success" type="submit">Search</button>
+                                        <button class="btn btn-lg btn-success" type="submit">Explore!</button>
                                     </div>
                                     <!--end of col-->
                                 </div>
@@ -60,55 +143,3 @@
                         <!--end of col-->
                     </div>
 </div> --}}
-{{!-- 
-<div class="">
-  <div class="row">
-      <div class="col-md-4">
-        <div class="card medium blue lighten-2">
-          <div class="card-image">
-            <img src="http://materializecss.com/images/sample-1.jpg">
-            <span class="card-title">Suggestion 1</span>
-          </div>
-          <div class="card-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, voluptatum soluta aspernatur quod quaerat saepe accusamus ducimus dolore commodi, rem.</p>
-          </div>
-          <div class="card-action">
-            <a href="#">This is a link</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card medium blue lighten-2">
-          <div class="card-image">
-            <img src="http://materializecss.com/images/sample-1.jpg">
-            <span class="card-title">Suggestion 2</span>
-          </div>
-          <div class="card-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, voluptatum soluta aspernatur quod quaerat saepe accusamus ducimus dolore commodi, rem.</p>
-          </div>
-          <div class="card-action">
-            <a href="#">This is a link</a>
-          </div>
-        </div>
-      </div>
-
-
-    <div class="col-md-4">
-      <div class="card medium blue lighten-2">
-        <div class="card-image">
-          <img src="http://materializecss.com/images/sample-1.jpg">
-          <span class="card-title">Suggestion 3</span>
-        </div>
-        <div class="card-content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, voluptatum soluta aspernatur quod quaerat saepe accusamus ducimus dolore commodi, rem.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-
-    <br><br> --}}
-
-{{> modal/login-block}}
