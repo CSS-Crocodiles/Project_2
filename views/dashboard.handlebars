@@ -1,67 +1,43 @@
 {{> nav/nav-block}}
 
 
-
 <div id="main-container" class="container">
-  <div class="jumbotron text-center header-wrap" align="center">
-    <p class="lead">What's good <strong>TRAVELERS</strong></p>
-    <hr class="my-4">
-    {{!-- <div>
-      {{#if isloggedin}}
-        You are supposedly "{{user.firstName}}"... if not.....
-        <p class="panther"></p>
-        <div><a href="/logout"> <button type="btn" class="btn">Leave us....</button></a></div>
-      {{else}}
-        <p>You need to check it before continuing.</p>
-      {{/if}}
-      <h5 id="login-err-msg"></h5>
-    </div> --}}
+  <div class="row">
+    <div class="col s6">
+      <div class="jumbotron text-center header-wrap" align="center">
+        <p class="lead">What's good <strong>TRAVELERS</strong></p>
+        <hr class="my-4">
+        <div>
+          {{#if isloggedin}}
+            You are supposedly "{{user.firstName}}"... if not.....
+            <p class="panther"></p>
+            <div><a href="/logout"> <button type="btn" class="btn">Leave us....</button></a></div>
+          {{else}}
+            <p>You need to check it before continuing.</p>
+          {{/if}}
+          <h5 id="login-err-msg"></h5>
+        </div>
+      </div>
+    </div>
+    <div class="col s6">
+      <form class="card card-sm">
+        <div class="card-body row no-gutters align-items-center">
+          <div class="col-auto">
+            <i class="fas fa-search h4 text-body"></i>
+          </div>
+          <div class="col">
+            <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="  I want to go...?">
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-lg btn-success" type="submit">Explore!</button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 
-{{!-- <div id="main-container" class="container">
-  <div class="jumbotron text-center header-wrap" align="center">
-    <p class="lead">What's good <strong>TRAVELERS</strong></p>
-    <hr class="my-4">
-    <div>
-      {{#if isloggedin}}
-        You are supposedly "{{user.firstName}}"... if not.....
-        <p class="panther"></p>
-        <div><a href="/logout"> <button type="btn" class="btn">Leave us....</button></a></div>
-      {{else}}
-        <p>You need to check it before continuing.</p>
-      {{/if}}
-      <h5 id="login-err-msg"></h5>
-    </div>
-  </div>
-</div> --}}
-{{!-- 
 <div class="container">
-    <br/>
-	<div class="row justify-content-center">
-                        <div class="col-12 col-md-10 col-lg-8">
-                            <form class="card card-sm">
-                                <div class="card-body row no-gutters align-items-center">
-                                    <div class="col-auto">
-                                        <i class="fas fa-search h4 text-body"></i>
-                                    </div>
-                                    <!--end of col-->
-                                    <div class="col">
-                                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
-                                    </div>
-                                    <!--end of col-->
-                                    <div class="col-auto">
-                                        <button class="btn btn-lg btn-success" type="submit">Search</button>
-                                    </div>
-                                    <!--end of col-->
-                                </div>
-                            </form>
-                        </div>
-                        <!--end of col-->
-                    </div>
-</div> --}}
-{{!-- 
-<div class="">
   <div class="row">
       <div class="col-md-4">
         <div class="card medium blue lighten-2">
@@ -109,6 +85,51 @@
       </div>
     </div>
 
-    <br><br> --}}
+    <br><br> 
 
 {{> modal/login-block}}
+
+
+
+
+{{!-- <div id="main-container" class="container">
+  <div class="row">
+    <div class="col s6">
+      <div class="jumbotron text-center header-wrap" align="center">
+          <p class="lead">What's good <strong>TRAVELERS</strong></p>
+          <hr class="my-4">
+            <div>
+          {{#if isloggedin}}
+            You are supposedly "{{user.firstName}}"... if not.....
+            <p class="panther"></p>
+            <div><a href="/logout"> <button type="btn" class="btn">Leave us....</button></a></div>
+          {{else}}
+            <p>You need to check it before continuing.</p>
+          {{/if}}
+          <h5 id="login-err-msg"></h5>
+        </div>
+      </div>
+    </div>
+  </div> --}}
+
+                            {{!-- <div class="col s6">
+                            <form class="card card-sm">
+                                <div class="card-body row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-search h4 text-body"></i>
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col">
+                                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="  I want to be...?">
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col-auto">
+                                        <button class="btn btn-lg btn-success" type="submit">Explore!</button>
+                                    </div>
+                                    <!--end of col-->
+                                </div>
+                            </form>
+                        </div>
+                        <!--end of col-->
+                    </div>
+</div> --}}
