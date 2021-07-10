@@ -17,9 +17,21 @@
   margin-top: 7% !important;
 }
 
+.lefty {
+  margin-top: 2%;
+  background-color: white;
+  padding-left: 2%;
+}
+
+.search {
+  margin-top: 6% !important;
+}
+
 .base {
   background-color: var(--dash);
   margin-top: 0% !important;
+  padding-top: 2%;
+  margin-bottom: 0%; 
 }
 
 body {

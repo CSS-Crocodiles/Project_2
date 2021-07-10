@@ -210,3 +210,7 @@ router.get('/savedtrips', (req, res, next) => {
     res.render('savedtrips');
   }
 });
+
+router.get('/login', (req, res, next) => {
+    res.render('loginpage');
+});
