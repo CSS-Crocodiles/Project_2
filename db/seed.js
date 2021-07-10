@@ -17,7 +17,7 @@ module.exports = (db) => {
         location_name: 'example location',
         starting_date: 'April 20, 2022',
         ending_date: 'April 30, 2022',
-        User_Id: 2
+        user_id: 2
       }).then(() => {
         db.restaurant.create({
           restaurant_name: 'example',
