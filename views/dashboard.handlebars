@@ -13,12 +13,18 @@
             <p class="panther"></p>
             <div><a href="/logout"> <button type="btn" class="btn">Leave us....</button></a></div>
           {{else}}
-            <p>You need to check with <a class="nav-link" href="/login">THE ADMINISTRATION</a> before continuing.</p>
+            <div class="col s6">
+              <p>You need to check with <a class="nav-link" href="/login">THE ADMINISTRATION</a> before continuing.</p>
+              </div>
+            <div class="col s6">
+              <p>If not with the registry, <a class="nav-link" href="/login">APPLY</a></p>
+              </div>
           {{/if}}
           <h5 id="login-err-msg"></h5>
         </div>
       </div>
     </div>
+    {{#if isloggedin}}
     <div class="search col s6">
       <form class="card card-sm">
         <div class="card-body row no-gutters align-items-center">
@@ -34,9 +40,11 @@
         </div>
       </form>
     </div>
+    {{/if}}
   </div>
 </div>
 
+{{#if isloggedin}}
 <div class="base container">
   <div class="row">
       <div class="col s4">
@@ -87,6 +95,7 @@
     </div>
 
     <br><br> 
+{{/if}}
 
 {{> modal/login-block}}
 
