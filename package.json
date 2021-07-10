@@ -4,6 +4,7 @@
   "description": "Project2 Starter with Express, Handlebars, Sequelize, and Authentication with Passport.",
   "main": "server.js",
   "scripts": {
+    "seed": "node ./db/seed.js",
     "start": "node server.js",
     "lint": "eslint . --ext .js --quiet",
     "fix": "eslint --fix .",
@@ -39,6 +40,7 @@
   },
   "homepage": "https://github.com/alperg/project2-starter-auth#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "bcrypt": "^5.0.0",
     "bulma": "^0.9.3",
     "connect-session-sequelize": "^7.0.3",
