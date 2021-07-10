@@ -73,13 +73,20 @@ module.exports = (db) => {
   // NOTES FROM KATELIN: This looks like the page we could use to display a user's
   // individual trips maybe? So instead of 'db.Example.findALL' it could be 'db.Location'
   // connected to 'views/example.handlebars'
-router.get('/example', function (req, res) {
-  if (req.isAuthenticated()) {
-    res.render('example');
-  } else {
-    res.render('dashboard', user);
-  }
-});
+  router.get('/example', function (req, res) {
+    if (req.isAuthenticated()) {
+      db.Example.findAll({ where: { UserId: req.session.passport.user.id }, raw: true }).then(function (dbExamples) {
+        res.render('example', {
+          userInfo: req.session.passport.user,
+          isloggedin: req.isAuthenticated(),
+          msg: 'Welcome!',
+          examples: dbExamples
+        });
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
 
   // Load example page and pass in an example by id
   // NOTES FROM KATELIN: here is the individual examples, so maybe the locations by id?
@@ -192,14 +199,12 @@ router.get('/materialize', (req, res, next) => {
   }
 });
 
-
 router.get('/savedtrips', (req, res, next) => {
   if (req.isAuthenticated()) {
     const user = {
       user: req.session.passport.user,
       isloggedin: req.isAuthenticated()
     };
-
     res.render('savedtrips', user);
   } else {
     res.render('savedtrips');
@@ -208,18 +213,4 @@ router.get('/savedtrips', (req, res, next) => {
 
 router.get('/login', (req, res, next) => {
     res.render('loginpage');
-
 });
-
-router.get('/create', (req, res, next) => {
-  if (req.isAuthenticated()) {
-    const user = {
-      user: req.session.passport.user,
-      isloggedin: req.isAuthenticated()
-    };
-    res.render('create', user);
-  } else {
-    res.render('create');
-  }
-  });
-
