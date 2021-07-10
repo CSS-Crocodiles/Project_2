@@ -79,6 +79,18 @@ hr {
   color: #444;
 }
 
+.card-title {
+  color: white !important;
+  font-size: 200%;
+  justify-content: center;
+  margin-left: 10%;
+}
+
+.card-name {
+  font-size: 200%;
+  text-align: center;
+}
+
 .wrapper{
   display: flex;
   position: relative;
@@ -153,4 +165,12 @@ hr {
   color: black;
   margin: 2px;
   border-radius: 10px;
+}
+
+.cardp {
+  
+}
+
+.GTN {
+
 }
