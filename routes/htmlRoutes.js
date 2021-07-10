@@ -199,12 +199,14 @@ router.get('/materialize', (req, res, next) => {
   }
 });
 
+
 router.get('/savedtrips', (req, res, next) => {
   if (req.isAuthenticated()) {
     const user = {
       user: req.session.passport.user,
       isloggedin: req.isAuthenticated()
     };
+
     res.render('savedtrips', user);
   } else {
     res.render('savedtrips');
@@ -214,3 +216,16 @@ router.get('/savedtrips', (req, res, next) => {
 router.get('/login', (req, res, next) => {
     res.render('loginpage');
 });
+
+router.get('/create', (req, res, next) => {
+  if (req.isAuthenticated()) {
+    const user = {
+      user: req.session.passport.user,
+      isloggedin: req.isAuthenticated()
+    };
+    res.render('create', user);
+  } else {
+    res.render('create');
+  }
+  });
+
