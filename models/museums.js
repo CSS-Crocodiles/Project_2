@@ -21,6 +21,13 @@ module.exports = function (sequelize, DataTypes) {
     hours: {
       type: DataTypes.INTEGER,
       allowNull: true
+    },
+    LocationId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Location',
+        key: 'id'
+      }
     }
   }, {
     timestamps: false

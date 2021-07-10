@@ -6,7 +6,7 @@ module.exports = (passport, db) => {
   const AppController = require('../controllers/appController')(db);
   const GoogleController = require('../controllers/googleController')(db);
   const LocationController = require('../controllers/locationController')(db);
-  // const MuseumController = require('../controllers/museumController')(db);
+  const MuseumController = require('../controllers/museumsController')(db);
   // const ParksController = require('../controllers/parksController')(db);
   // const RestaurantsController = require('../controllers/restaurantsController')(db);
   // const TrailsController = require('../controllers/trailsController')(db);
@@ -48,7 +48,7 @@ module.exports = (passport, db) => {
 
   // // MUSEUMS:
   // // GET User's Location's Museums
-  // router.get('/museums', MuseumController.getMuseums);
+  router.get('/museums', MuseumController.getMuseums);
   // // POST all of Location's Museums
   // router.post('/museums', MuseumController.createMuseums);
   // // GET specific Museum based on Museums id

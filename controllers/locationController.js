@@ -1,7 +1,8 @@
-const Museums = require('../models/museums');
+const {museums} = require('../models');
 const Trails = require('../models/trails');
 const Restaurants = require('../models/restaurant');
 const Parks = require('../models/parks');
+
 // const Location = require('../models/location');
 
 module.exports = function (db) {
@@ -16,8 +17,10 @@ module.exports = function (db) {
     // Get single Location
     getSingleLocation: function (req, res) {
         console.log('THE DATA COMING IN ', req.params.id)
-      db.Location.findByPk(req.params.id,
-        // include: [Museums, Trails, Parks, Restaurants] }
+      db.Location.findOne({ 
+          where: { id:req.params.id}, 
+          include: [{model: db.museums}]},
+        console.log('MUSEUMS? ', db.museums)
       ).then(function (dbSingleLoc) {
         res.json(dbSingleLoc);
       });

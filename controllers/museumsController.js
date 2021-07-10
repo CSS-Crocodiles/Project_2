@@ -1,9 +1,11 @@
+const db = require("../models");
+
 module.exports = function (db) {
   return {
     // Get all examples
-    getExamples: function (req, res) {
-      db.Example.findAll({ where: { UserId: req.session.passport.user.id } }).then(function (dbExamples) {
-        res.json(dbExamples);
+    getMuseums: function (req, res) {
+      db.museums.findAll({ where: { user_id: req.session.passport.user.id, LocationId: req.params.id } }).then(function (dbMuseums) {
+        res.json(dbMuseums);
       });
     },
     // Create a new example
