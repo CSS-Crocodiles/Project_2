@@ -5,7 +5,11 @@ module.exports = (passport, db) => {
   const AuthController = require('../controllers/authController')(passport, db);
   const AppController = require('../controllers/appController')(db);
   const GoogleController = require('../controllers/googleController')(db);
-
+  const LocationController = require('../controllers/locationController')(db);
+  const MuseumController = require('../controllers/museumController')(db);
+  const ParksController = require('../controllers/parksController')(db);
+  const RestaurantsController = require('../controllers/restaurantsController')(db);
+  const TrailsController = require('../controllers/trailsController')(db);
 
   // Authentication
   // NOTES FROM KATELIN:
@@ -24,55 +28,71 @@ module.exports = (passport, db) => {
   // Don't think we need to do many more CRUD for USER bc its under AUTHENTICATION
   // from each user's homepage do they have a link to each trip they've created based
 
-  // LOCATIONS:
-  // GET User's Location's
-  // POST all of User's Location's
-  // GET specific Location based on location id
-  // POST specific Location based on location id with all
-  // of their places to visit ('parks', 'trails', 'musuems', restaurant').
-  // (maybe add a DELETE here to remove a location?)
-  // (maybe add a PUT here to update location parameters like date?)
-
-  // RESTAURANTS
-  // GET restaurants based on location id
-  // POST restaurant based on location id
-  // GET specific restaurant based on restaurant id
-  // POST specific restaurant based on restaurant id
-  // (maybe add a DELETE here to remove a restaurant?)
-
-  // TRAILS
-  // GET trails based on location id
-  // POST trails based on location id
-  // GET specific trails based on trails id
-  // POST specific trails based on trails id
-  // (maybe add a DELETE here to remove a trails?)
-
-  // PARKS
-  // GET parks based on location id
-  // POST parks based on location id
-  // GET specific parks based on parks id
-  // POST specific parks based on parks id
-  // (maybe add a DELETE here to remove a parks?)
-
-  // MUSEUMS
-  // GET museums based on location id
-  // POST museums based on location id
-  // GET specific museum based on museums id
-  // POST specific museum based on museum id
-  // (maybe add a DELETE here to remove a museum?)
-
-  // 2 routes, from the 'search' page to first GET trip ideas based on location with the parameters
-  // of: dates and parks, trails, museums and restaurants.
-  // And then POST all of this info
-
-  // These example GET, POST and DELETE are connected to 'controllers/appController'
-  // to keep the data gathered secured. So most of the CRUD route functions are actually
-  // written there
   router.get('/examples', AppController.getExamples);
   router.post('/examples', AppController.createExample);
   router.delete('/examples/:id', AppController.deleteExample);
+  // GET Route for the google api data
   router.get('/getGoogleData', GoogleController.getTrip);
+  // LOCATIONS:
+  // GET User's Location's
+  // ** Should probably be '/user' bc most likely user page**
+  router.get('/location', LocationController.getLocation);
+  // POST create a new location - need a page for this**
+  router.post('/location', LocationController.createLocation);
+  // GET specific Location based on location id with all
+  // of their places to visit ('parks', 'trails', 'musuems', restaurant').
+  router.get('/location/:id', LocationController.getSingleLocation);
+  // (maybe add a DELETE here to remove a location?)
+  router.delete('/location/:id', LocationController.deleteLocations);
+  // (maybe add a PUT here to update location parameters like date?)
 
+  // MUSEUMS:
+  // GET User's Location's Museums
+  router.get('/museums', MuseumController.getMuseums);
+  // POST all of Location's Museums
+  router.post('/museums', MuseumController.createMuseums);
+  // GET specific Museum based on Museums id
+  router.get('/museums/:id', MuseumController.getSingleMuseum);
+  // POST specific Museum based on Museums id
+  router.post('/museums/:id', MuseumController.getSingleMuseum);
+  // (maybe add a DELETE here to remove a Museum?)
+  router.delete('/museums/:id', MuseumController.deleteMuseum);
+
+  // PARKS:
+  // GET User's Location's Parks
+  router.get('/parks', ParksController.getParks);
+  // POST all of User's Parks'
+  router.post('/parks', ParksController.createParks);
+  // GET specific Park based on Park id
+  router.get('/parks/:id', ParksController.getSingleParks);
+  // POST specific Park based on Park id with all
+  router.post('/parks/:id', ParksController.getSingleParks);
+  // (maybe add a DELETE here to remove a Park?)
+  router.delete('/parks/:id', ParksController.deleteParks);
+
+  // RESTAURANTS:
+  // GET User's Location's Restaurants
+  router.get('/restaurants', RestaurantsController.getRestaurants);
+  // POST all of User's Restaurants'
+  router.post('/restaurants', RestaurantsController.createRestaurants);
+  // GET specific Restaurant based on Restaurants id
+  router.get('/restaurants/:id', RestaurantsController.getSingleRestaurant);
+  // POST specific Restaurant based on Restaurants id with all
+  router.post('/restaurants/:id', RestaurantsController.getSingleRestaurant);
+  // (maybe add a DELETE here to remove a Restaurant?)
+  router.delete('/restaurants/:id', RestaurantsController.deleteRestaurant);
+
+  // TRAILS:
+  // GET User's Location's Trails
+  router.get('/trails', TrailsController.getTrails);
+  // POST all of Locations's Trails
+  router.post('/trails', TrailsController.createTrails);
+  // GET specific Trail based on Trails id
+  router.get('/trails/:id', TrailsController.getSingleTrail);
+  // POST specific Trail based on Trails id
+  router.post('/trails/:id', TrailsController.getSingleTrail);
+  // (maybe add a DELETE here to remove a Trail?)
+  router.delete('/trails/:id', TrailsController.deleteTrail);
 
   return router;
 };
