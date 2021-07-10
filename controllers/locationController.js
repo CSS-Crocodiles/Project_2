@@ -16,9 +16,9 @@ module.exports = function (db) {
     // Get single Location
     getSingleLocation: function (req, res) {
         console.log('THE DATA COMING IN ', req.params.id)
-      db.Location.findByPk(req.params.id)
+      db.Location.findByPk(req.params.id,
         // include: [Museums, Trails, Parks, Restaurants] }
-      .then(function (dbSingleLoc) {
+      ).then(function (dbSingleLoc) {
         res.json(dbSingleLoc);
       });
     },
