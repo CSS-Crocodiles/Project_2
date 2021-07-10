@@ -38,9 +38,9 @@ body {
 .container {
   padding-bottom: 2%;
   margin-top: 10%;
-  background: rgba(86, 101, 115,.6);
-  height:100%;
-  border-radius: .25rem;
+
+  background: var(--bg);
+  border-radius: 10px;
   margin-bottom: 2%;
   width: 600px;
 }
@@ -73,6 +73,7 @@ hr {
   color: #444;
 }
 
+<<<<<<< HEAD
 *{
   margin: 0;
   padding: 0;
@@ -150,3 +151,17 @@ body{
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
+=======
+
+.panther {
+  margin: 15px;
+}
+
+.wow, .whoo, .wah {
+  background-color: rgba(220, 20, 60, 0.644);
+  color: black;
+  margin: 2px;
+  border-radius: 10px;
+}
+
+>>>>>>> cf652a5304ced5d063e8ac9193234a0f2de1fd08
