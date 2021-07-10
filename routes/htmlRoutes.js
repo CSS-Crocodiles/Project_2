@@ -198,3 +198,15 @@ router.get('/materialize', (req, res, next) => {
     res.render('materialize');
   }
 });
+
+router.get('/savedtrips', (req, res, next) => {
+  if (req.isAuthenticated()) {
+    const user = {
+      user: req.session.passport.user,
+      isloggedin: req.isAuthenticated()
+    };
+    res.render('savedtrips', user);
+  } else {
+    res.render('savedtrips');
+  }
+});
