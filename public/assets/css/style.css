@@ -38,9 +38,9 @@ body {
 .container {
   padding-bottom: 2%;
   margin-top: 10%;
-  background: rgba(86, 101, 115,.6);
-  height:100%;
-  border-radius: .25rem;
+
+  background: var(--bg);
+  border-radius: 10px;
   margin-bottom: 2%;
   width: 600px;
 }
@@ -72,3 +72,16 @@ hr {
 .card-body {
   color: #444;
 }
+
+
+.panther {
+  margin: 15px;
+}
+
+.wow, .whoo, .wah {
+  background-color: rgba(220, 20, 60, 0.644);
+  color: black;
+  margin: 2px;
+  border-radius: 10px;
+}
+
