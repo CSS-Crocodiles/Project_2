@@ -5,7 +5,7 @@ module.exports = (passport, db) => {
   const AuthController = require('../controllers/authController')(passport, db);
   const AppController = require('../controllers/appController')(db);
   const GoogleController = require('../controllers/googleController')(db);
-  // const LocationController = require('../controllers/locationController')(db);
+  const LocationController = require('../controllers/locationController')(db);
   // const MuseumController = require('../controllers/museumController')(db);
   // const ParksController = require('../controllers/parksController')(db);
   // const RestaurantsController = require('../controllers/restaurantsController')(db);
@@ -36,14 +36,14 @@ module.exports = (passport, db) => {
   // // LOCATIONS:
   // // GET User's Location's
   // // ** Should probably be '/user' bc most likely user page**
-  // router.get('/location', LocationController.getLocation);
+  router.get('/location', LocationController.getLocation);
   // // POST create a new location - need a page for this**
-  // router.post('/location', LocationController.createLocation);
+  router.post('/location', LocationController.createLocation);
   // // GET specific Location based on location id with all
   // // of their places to visit ('parks', 'trails', 'musuems', restaurant').
-  // router.get('/location/:id', LocationController.getSingleLocation);
+  router.get('/location/:id', LocationController.getSingleLocation);
   // // (maybe add a DELETE here to remove a location?)
-  // router.delete('/location/:id', LocationController.deleteLocations);
+  router.delete('/location/:id', LocationController.deleteLocations);
   // // (maybe add a PUT here to update location parameters like date?)
 
   // // MUSEUMS:
