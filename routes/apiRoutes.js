@@ -35,6 +35,7 @@ module.exports = (passport, db) => {
   router.get('/getGoogleData', GoogleController.getTrip);
   // LOCATIONS:
   // GET User's Location's
+  // ** Should probably be '/user' bc most likely user page**
   router.get('/location', LocationController.getLocation);
   // POST create a new location - need a page for this**
   router.post('/location', LocationController.createLocation);
