@@ -9,8 +9,7 @@
     "lint": "eslint . --ext .js --quiet",
     "fix": "eslint --fix .",
     "test": "npm run lint",
-    "watch": "nodemon server.js",
-    "seed": "node ./db/seed.js"
+    "watch": "nodemon server.js"
   },
   "repository": {
     "type": "git",
