@@ -34,6 +34,7 @@ module.exports = function (db) {
     
     // Delete an example by id
     deleteLocations: function (req, res) {
+        console.log("REQUEST coming in: ", req.params.id)
       db.Location.destroy({ where: { id: req.params.id } }).then(function (dbDeleteLoc) {
         res.json(dbDeleteLoc);
       });

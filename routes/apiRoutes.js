@@ -43,7 +43,7 @@ module.exports = (passport, db) => {
   // // of their places to visit ('parks', 'trails', 'musuems', restaurant').
   router.get('/location/:id', LocationController.getSingleLocation);
   // // (maybe add a DELETE here to remove a location?)
-  // router.delete('/location/:id', LocationController.deleteLocations);
+  router.delete('/location/:id', LocationController.deleteLocations);
   // // (maybe add a PUT here to update location parameters like date?)
 
   // // MUSEUMS:
