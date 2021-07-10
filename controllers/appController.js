@@ -20,3 +20,5 @@ module.exports = function (db) {
     }
   };
 };
+
+// handling functionality of response.render

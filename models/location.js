@@ -19,19 +19,27 @@ module.exports = function (sequelize, DataTypes) {
       ending_date: {
         type: DataTypes.DATEONLY,
         allowNull: false
-      },
-      user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'Users',
-          key: 'id'
-        }
       }
+      // user_id: {
+      //   type: DataTypes.INTEGER,
+      //   references: {
+      //     model: 'Users',
+      //     key: 'id'
+      //   }
+      // }
     },
     {
       timestamps: false
     }
   );
+
+  Location.associate = function (models) {
+    Location.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
 
   Location.associate = function (models) {
     Location.hasMany(models.parks, {

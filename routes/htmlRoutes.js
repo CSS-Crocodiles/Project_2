@@ -1,4 +1,8 @@
 const router = require('express').Router();
+const Museums = require('../models/museums');
+const Trails = require('../models/trails');
+const Restaurants = require('../models/restaurant');
+const Parks = require('../models/parks');
 
 module.exports = (db) => {
   // Load register page
@@ -17,6 +21,7 @@ module.exports = (db) => {
   // gives us the profile page where a user can update their profile info (email, name, etc)
   // and that seems to be connected to the 'controllers/authControler' file where the
   // 'update user' is located
+  // for the googleController like this ASK JOHN P ABOUT THIS!!
   router.get('/profile', (req, res) => {
     if (req.isAuthenticated()) {
       db.User.findOne({
@@ -102,6 +107,43 @@ module.exports = (db) => {
       res.redirect('/');
     }
   });
+  // **PROB WANT TO CHANGE HTML ROUTE**
+  // Should probably be '/user' bc most likely user page
+  // ALSO NEED HANDLEBAR IT CONNECTS TO
+
+  router.get('/location', function (req, res) {
+    if (req.isAuthenticated()) {
+      db.Location.findAll({ where: { UserId: req.session.passport.user.id },
+        raw: true }).then(function (dbLocations) {
+        res.render('location', {
+          userInfo: req.session.passport.user,
+          isloggedin: req.isAuthenticated(),
+          msg: 'Welcome Back USER!',
+          examples: dbLocations
+        });
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
+
+  // AGAIN will prob need to change route depending on front end
+  // ALSO NEED HANDLEBAR IT CONNECTS TO
+  router.get('/location/:id', function (req, res) {
+    if (req.isAuthenticated()) {
+      db.Location.findOne({ where: { id: req.params.id,
+        include: [Museums, Trails, Parks, Restaurants] },
+      raw: true }).then(function (dbSingleLoc) {
+        res.render('location-detail', {
+          userInfo: req.session.passport.user,
+          isloggedin: req.isAuthenticated(),
+          example: dbSingleLoc
+        });
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
 
   // Logout
   // NOTES FROM KATELIN: Looks like there IS NOT a handlebar for this yet. BUT at the
@@ -156,6 +198,7 @@ router.get('/materialize', (req, res, next) => {
     res.render('materialize');
   }
 });
+<<<<<<< HEAD
 
 router.get('/savedtrips', (req, res) => {
   if (req.isAuthenticated()) {
@@ -180,3 +223,5 @@ router.get('/create', (req, res) => {
     res.render('create');
   }
 });
+=======
+>>>>>>> c344c62c1fc0c5954cbc69699cbcbe30d51d1669
