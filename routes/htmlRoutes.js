@@ -175,8 +175,6 @@ module.exports = (db) => {
 
 // Change to "new" for the handlebars I am creating.
 
-
-
 router.get('/NCDis', (req, res, next) => {
   if (req.isAuthenticated()) {
     const user = {
