@@ -1,28 +1,33 @@
-const Museums = require('../models/museums');
+const {Museums} = require('../models/museums');
 const Trails = require('../models/trails');
 const Restaurants = require('../models/restaurant');
 const Parks = require('../models/parks');
+
 // const Location = require('../models/location');
 
 module.exports = function (db) {
   return {
-    // Get all locations
+    // Get all locations WORKS
     getLocation: function (req, res) {
-      db.Location.findAll({ where: { user_id: req.session.passport.user.id }
+      db.Location.findAll({ 
+        where: { 
+          user_id: req.session.passport.user.id }
       }).then(function (dbLocations) {
         res.json(dbLocations);
       });
     },
-    // Get single Location
+    // Get single Location WORKS (still need to include, Parks, Trails and Restaurants)
     getSingleLocation: function (req, res) {
         console.log('THE DATA COMING IN ', req.params.id)
-      db.Location.findByPk(req.params.id,
-        // include: [Museums, Trails, Parks, Restaurants] }
+      db.Location.findOne({ 
+          where: { id:req.params.id}, 
+          include: [{model: db.Museums}]},
+        console.log('MUSEUMS? ', db.Museums)
       ).then(function (dbSingleLoc) {
         res.json(dbSingleLoc);
       });
     },
-    // Create a new example Which page??
+    // WORKS
     // first ask where do you want to go? - that could create this location
     createLocation: function (req, res) {
         console.log('THE DATA COMING IN ', req.body)
@@ -32,7 +37,7 @@ module.exports = function (db) {
       });
     },
     
-    // Delete an example by id
+    // Delete an example by id WORKS
     deleteLocations: function (req, res) {
         console.log("REQUEST coming in: ", req.params.id)
       db.Location.destroy({ where: { id: req.params.id } }).then(function (dbDeleteLoc) {
