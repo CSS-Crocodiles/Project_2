@@ -28,7 +28,7 @@
     "ms": "^2.1.2",
     "mysql2": "^2.2.5",
     "node": "^16.4.0",
-    "nodemon": "^2.0.11",
+    "nodemon": "^2.0.12",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "sequelize": "^6.6.5"
@@ -36,7 +36,9 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "seed": "node ./db/seed.js"
   },
   "repository": {
     "type": "git",
