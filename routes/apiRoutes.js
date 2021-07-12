@@ -48,11 +48,11 @@ module.exports = (passport, db) => {
 
   // // MUSEUMS:
   // // GET User's Location's Museums
-  router.get('/museums', MuseumController.getMuseums);
+  // router.get('/museums', MuseumController.getMuseums);
   // // POST all of Location's Museums
   // router.post('/museums', MuseumController.createMuseums);
   // // GET specific Museum based on Museums id
-  // router.get('/museums/:id', MuseumController.getSingleMuseum);
+  router.get('/museums/:id', MuseumController.getSingleMuseum);
   // // POST specific Museum based on Museums id
   // router.post('/museums/:id', MuseumController.getSingleMuseum);
   // // (maybe add a DELETE here to remove a Museum?)

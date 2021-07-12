@@ -9,7 +9,9 @@ module.exports = function (db) {
   return {
     // Get all locations WORKS
     getLocation: function (req, res) {
-      db.Location.findAll({ where: { user_id: req.session.passport.user.id }
+      db.Location.findAll({ 
+        where: { 
+          user_id: req.session.passport.user.id }
       }).then(function (dbLocations) {
         res.json(dbLocations);
       });
