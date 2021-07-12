@@ -18,7 +18,10 @@ module.exports = function (db) {
     },
     // Delete an example by id
     deleteExample: function (req, res) {
-      db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
+      db.Example.destroy({ 
+        where: 
+        { id: req.params.id } 
+      }).then(function (dbExample) {
         res.json(dbExample);
       });
     }
