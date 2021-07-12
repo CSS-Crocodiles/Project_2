@@ -199,7 +199,6 @@ router.get('/materialize', (req, res, next) => {
   }
 });
 
-
 router.get('/savedtrips', (req, res, next) => {
   if (req.isAuthenticated()) {
     const user = {
@@ -214,7 +213,7 @@ router.get('/savedtrips', (req, res, next) => {
 });
 
 router.get('/login', (req, res, next) => {
-    res.render('loginpage');
+  res.render('loginpage');
 });
 
 router.get('/create', (req, res, next) => {
@@ -227,5 +226,4 @@ router.get('/create', (req, res, next) => {
   } else {
     res.render('create');
   }
-  });
-
+});

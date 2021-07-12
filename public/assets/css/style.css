@@ -9,7 +9,8 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Lora', sans-serif;
+  /* font-size: 22px; */
 }
 
 .main {
@@ -195,4 +196,14 @@ hr {
 
 .cardp {
   
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
 }
