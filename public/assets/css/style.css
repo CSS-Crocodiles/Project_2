@@ -216,7 +216,17 @@ hr {
   align-items: center;
 }
 
+/* struggling here */
+
 .feetz {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.page-footer {
+  max-height: 5px;
   display:flex;
   justify-content: center;
   align-items: center;
