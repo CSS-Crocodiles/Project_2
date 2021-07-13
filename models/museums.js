@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const museums = sequelize.define('museums', {
+  const Museums = sequelize.define('Museums', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -25,7 +25,11 @@ module.exports = function (sequelize, DataTypes) {
     LocationId: {
       type: DataTypes.INTEGER,
       references: {
+<<<<<<< HEAD
         model: 'Location',
+=======
+        model: 'Locations',
+>>>>>>> d8d9d5eb2ce08f207d7e0646b44291a0ae1f904c
         key: 'id'
       }
     }
@@ -33,13 +37,13 @@ module.exports = function (sequelize, DataTypes) {
     timestamps: false
   });
 
-  museums.associate = function (models) {
-    museums.belongsTo(models.Location, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // Museums.associate = function (models) {
+  //   Museums.belongsTo(models.Location, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
 
-  return museums;
+  return Museums;
 };
