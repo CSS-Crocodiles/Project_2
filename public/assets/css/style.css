@@ -197,14 +197,15 @@ hr {
   border-radius: 10px;
 }
 
-.cardp {
-  
+.nav-wrapper {
+  color: black;
 }
 
 .bagels {
-
+  background-color: black;
+  color: white;
 }
 
 .donuts {
-  
+  background-color: black;
 }
