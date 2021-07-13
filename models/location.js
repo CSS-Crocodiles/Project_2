@@ -1,3 +1,4 @@
+
 module.exports = function (sequelize, DataTypes) {
   const Location = sequelize.define(
     'Location',
@@ -41,29 +42,29 @@ module.exports = function (sequelize, DataTypes) {
     });
   };
 
+  // Location.associate = function (models) {
+  //   Location.hasMany(models.parks, {
+  //     onDelete: 'cascade'
+  //   });
+  // };
+
   Location.associate = function (models) {
-    Location.hasMany(models.parks, {
+    Location.hasMany(models.Museums, {
       onDelete: 'cascade'
     });
   };
 
-  Location.associate = function (models) {
-    Location.hasMany(models.museums, {
-      onDelete: 'cascade'
-    });
-  };
+  // Location.associate = function (models) {
+  //   Location.hasMany(models.restaurant, {
+  //     onDelete: 'cascade'
+  //   });
+  // };
 
-  Location.associate = function (models) {
-    Location.hasMany(models.restaurant, {
-      onDelete: 'cascade'
-    });
-  };
-
-  Location.associate = function (models) {
-    Location.hasMany(models.trails, {
-      onDelete: 'cascade'
-    });
-  };
+  // Location.associate = function (models) {
+  //   Location.hasMany(models.trails, {
+  //     onDelete: 'cascade'
+  //   });
+  // };
 
   return Location;
 };
