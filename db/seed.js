@@ -19,14 +19,14 @@ module.exports = (db) => {
         ending_date: 'April 30, 2022',
         user_id: 2
       }).then(() => {
-        db.restaurant.create({
+        db.Restaurant.create({
           restaurant_name: 'example',
           address: 'sample location',
           hours: '1030',
           price_level: 2,
           LocationId: 1
         }).then(() => {
-          db.trails.create({
+          db.Trails.create({
             id: 1,
             trail_name: 'sample trail',
             address: '1234 pretty trail lane',
