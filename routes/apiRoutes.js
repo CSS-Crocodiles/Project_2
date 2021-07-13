@@ -73,8 +73,14 @@ module.exports = (passport, db) => {
   // // (maybe add a DELETE here to remove a Trail?)
   router.delete('/trails/:id', TrailsController.deleteTrail);
 
-  //CREATE:
+  // CREATE:
   // POST to create a museum under a specific location
-  router.post('/location/:id/museums', CreateController.createMuseum); 
+  router.post('/location/:id/museums', CreateController.createMuseum);
+  // POST to create a trail under a specific location
+  router.post('/location/:id/trails', CreateController.createTrail);
+  // POST to create a park under a specific location
+  router.post('/location/:id/parks', CreateController.createPark);
+  // POST to create a restaurant under a specific location
+  router.post('/location/:id/restaurants', CreateController.createRestaurant);
   return router;
 };
