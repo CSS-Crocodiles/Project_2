@@ -20,12 +20,6 @@ module.exports = function (db) {
         res.json(dbSingleRestaurant);
       });
     },
-    // Create a new example
-    // createExample: function (req, res) {
-    // db.Example.create(req.body).then(function (dbExample) {
-    //  res.json(dbExample);
-    //  });
-    // },
     // Delete an example by id
     deleteRestaurant: function (req, res) {
       db.Restaurant.destroy({ where: { id: req.params.id } }).then(function (dbRestaurant) {

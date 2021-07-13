@@ -20,12 +20,6 @@ module.exports = function (db) {
         res.json(dbSingleTrail);
       });
     },
-    // Create a new example
-    // createExample: function (req, res) {
-    //   db.Example.create(req.body).then(function (dbExample) {
-    //    res.json(dbExample);
-    //  });
-    // },
     // Delete an trail by id
     deleteTrail: function (req, res) {
       db.Trails.destroy({ where: { id: req.params.id } }).then(function (dbTrail) {
