@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const parks = sequelize.define('Parks', {
+  const Parks = sequelize.define('Parks', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -13,6 +13,13 @@ module.exports = function (sequelize, DataTypes) {
     address: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    LocationId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Locations',
+        key: 'id'
+      }
     }
   }, {
     timestamps: false
@@ -26,5 +33,5 @@ module.exports = function (sequelize, DataTypes) {
  //   });
  // };
 
-  return parks;
+  return Parks;
 };
