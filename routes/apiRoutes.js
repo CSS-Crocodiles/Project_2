@@ -10,7 +10,7 @@ module.exports = (passport, db) => {
   const ParksController = require('../controllers/parksController')(db);
   const RestaurantController = require('../controllers/restaurantController')(db);
   const TrailsController = require('../controllers/trailsController')(db);
-
+  const CreateController = require('../controllers/createController')(db);
   // Authentication
   // NOTES FROM KATELIN:
   // looks like all of the GETs, POSTs, PUTs, DELETES are written in
@@ -50,6 +50,8 @@ module.exports = (passport, db) => {
   // // MUSEUMS:
   // // GET specific Museum based on Museums id
   router.get('/museums/:id', MuseumController.getSingleMuseum);
+  // POST create a new musuem
+  // router.post('/museums', MuseumController.createMuseum);
   // // (maybe add a DELETE here to remove a Museum?)
   router.delete('/museums/:id', MuseumController.deleteMuseum);
 
@@ -71,5 +73,8 @@ module.exports = (passport, db) => {
   // // (maybe add a DELETE here to remove a Trail?)
   router.delete('/trails/:id', TrailsController.deleteTrail);
 
+  //CREATE:
+  // POST to create a museum under a specific location
+  router.post('/location/:id/museums', CreateController.createMuseum); 
   return router;
 };
