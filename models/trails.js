@@ -13,17 +13,24 @@ module.exports = function (sequelize, DataTypes) {
     address: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    LocationId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Locations',
+        key: 'id'
+      }
     }
   }, {
     timestamps: false
   });
 
   // Trails.associate = function (models) {
-   // Trails.belongsTo(models.Location, {
-    //  foreignKey: {
-    //    allowNull: false
-    //  }
-   // });
+  // Trails.belongsTo(models.Location, {
+  //  foreignKey: {
+  //    allowNull: false
+  //  }
+  // });
   // };
 
   return Trails;

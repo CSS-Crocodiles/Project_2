@@ -205,7 +205,6 @@ router.get('/savedtrips', (req, res, next) => {
       user: req.session.passport.user,
       isloggedin: req.isAuthenticated()
     };
-
     res.render('savedtrips', user);
   } else {
     res.render('savedtrips');

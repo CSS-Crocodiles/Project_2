@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+// eslint-disable-next-line object-curly-spacing
 const {Museums} = require('../models/museums');
 const Trails = require('../models/trails');
 const Restaurants = require('../models/restaurant');
@@ -10,8 +11,8 @@ module.exports = function (db) {
   return {
     // Get all locations WORKS
     getLocation: function (req, res) {
-      db.Location.findAll({ 
-        where: { 
+      db.Location.findAll({
+        where: {
           user_id: req.session.passport.user.id }
       }).then(function (dbLocations) {
         res.json(dbLocations);
@@ -22,7 +23,7 @@ module.exports = function (db) {
       console.log('THE DATA COMING IN ', req.params.id);
       db.Location.findOne({
         where: { id: req.params.id },
-        include: [{ model: db.Museums } //, { model: db.Parks }, { model: db.Trails }, { model: db.Restaurant }
+        include: [ { model: db.Parks }, { model: db.Museums }, { model: db.Restaurant }, { model: db.Trails }
         ] },
       console.log('MUSEUMS? ', db.Museums)
       ).then(function (dbSingleLoc) {
@@ -38,6 +39,18 @@ module.exports = function (db) {
         res.json(dbNewLoc);
       });
     },
+
+    // createLocation: function (req, res) {
+    //   console.log('THE DATA COMING IN ', req.body);
+    //   db.Location.create({
+    //     location_name: req.body.name,
+    //     starting_date: req.body.start,
+    //     ending_date: req.body.end,
+    //     user_id: req.session.passport.user.id }).then(function (dbNewLoc) {
+    //     console.log('HERE IS THE NEW LOCATION DATA: ', dbNewLoc);
+    //     res.json(dbNewLoc);
+    //   });
+    // },
 
     // Delete an example by id WORKS
     deleteLocations: function (req, res) {
