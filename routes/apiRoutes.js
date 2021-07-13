@@ -7,9 +7,9 @@ module.exports = (passport, db) => {
   const GoogleController = require('../controllers/googleController')(db);
   const LocationController = require('../controllers/locationController')(db);
   const MuseumController = require('../controllers/museumsController')(db);
-  // const ParksController = require('../controllers/parksController')(db);
-  // const RestaurantsController = require('../controllers/restaurantsController')(db);
-  // const TrailsController = require('../controllers/trailsController')(db);
+  const ParksController = require('../controllers/parksController')(db);
+  const RestaurantController = require('../controllers/restaurantController')(db);
+  const TrailsController = require('../controllers/trailsController')(db);
 
   // Authentication
   // NOTES FROM KATELIN:
@@ -55,21 +55,21 @@ module.exports = (passport, db) => {
 
   // // PARKS:
   // // GET specific Park based on Park id
-  // router.get('/parks/:id', ParksController.getSingleParks);
+  router.get('/parks/:id', ParksController.getSinglePark);
   // // (maybe add a DELETE here to remove a Park?)
-  // router.delete('/parks/:id', ParksController.deleteParks);
+  router.delete('/parks/:id', ParksController.deletePark);
 
   // // RESTAURANTS:
   // // GET specific Restaurant based on Restaurants id
-  // router.get('/restaurants/:id', RestaurantsController.getSingleRestaurant);
+  router.get('/restaurants/:id', RestaurantController.getSingleRestaurant);
   // // (maybe add a DELETE here to remove a Restaurant?)
-  // router.delete('/restaurants/:id', RestaurantsController.deleteRestaurant);
+  router.delete('/restaurants/:id', RestaurantController.deleteRestaurant);
 
   // // TRAILS:
   // // GET specific Trail based on Trails id
-  // router.get('/trails/:id', TrailsController.getSingleTrail);
+  router.get('/trails/:id', TrailsController.getSingleTrail);
   // // (maybe add a DELETE here to remove a Trail?)
-  // router.delete('/trails/:id', TrailsController.deleteTrail);
+  router.delete('/trails/:id', TrailsController.deleteTrail);
 
   return router;
 };

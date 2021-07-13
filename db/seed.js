@@ -19,26 +19,26 @@ module.exports = (db) => {
         ending_date: 'April 30, 2022',
         user_id: 2
       }).then(() => {
-        db.restaurant.create({
+        db.Restaurant.create({
           restaurant_name: 'example',
           address: 'sample location',
           hours: '1030',
           price_level: 2,
           LocationId: 1
         }).then(() => {
-          db.trails.create({
+          db.Trails.create({
             id: 1,
             trail_name: 'sample trail',
             address: '1234 pretty trail lane',
             LocationId: 1
           }).then(() => {
-            db.parks.create({
+            db.Parks.create({
               id: 1,
               park_name: 'sample park',
               address: '1234 pretty park lane',
               LocationId: 1
             }).then(() => {
-              db.museums.create({
+              db.Museums.create({
                 id: 1,
                 museum_name: 'the best museum',
                 address: '1234 pretty museum',
