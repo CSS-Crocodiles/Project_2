@@ -27,12 +27,16 @@ module.exports = function (db) {
         res.json(dbSingleMus);
       });
     },
-    // Create a new example WOULD WE NEED THIS?
-    // createExample: function (req, res) {
-    //   db.Example.create(req.body).then(function (dbExample) {
-    //     res.json(dbExample);
+    // NOW ON createController.js
+    // Create a new MUSEUM
+    // createMuseum: function (req, res) {
+    //   console.log('THE DATA COMING IN ', req.body);
+    //   db.Museums.create(req.body)
+    //   .then(function (newMuseum) {
+    //     res.json(newMuseum);
     //   });
     // },
+
     // Delete an example by id
     deleteMuseum: function (req, res) {
       db.Museums.destroy({ 
