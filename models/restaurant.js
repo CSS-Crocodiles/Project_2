@@ -21,17 +21,24 @@ module.exports = function (sequelize, DataTypes) {
     hours: {
       type: DataTypes.INTEGER,
       allowNull: true
+    },
+    LocationId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Locations',
+        key: 'id'
+      }
     }
   }, {
     timestamps: false
   });
 
- // restaurants.associate = function (models) {
+  // restaurants.associate = function (models) {
   //  restaurants.belongsTo(models.Location, {
-   //   foreignKey: {
+  //   foreignKey: {
   //      allowNull: false
   //    }
- //   });
+  //   });
   // };
 
   return restaurants;
