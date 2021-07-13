@@ -2,7 +2,7 @@
   --dash: brown;
   --nuf: white;
   --text: black;
-
+  --stgroup: white;
 }
 
 *{
@@ -192,7 +192,7 @@ hr {
   margin: 15px;
 }
 
-.wow, .whoo, .wah, .tea, .newthing {
+.wow, .whoo, .wah, .tea {
   background-color: rgba(220, 20, 60, 0.644);
   color: black;
   margin: 2px;
@@ -213,12 +213,6 @@ hr {
   justify-content: center;
   align-items: center;
 }
-
-a {
-  color: var(--text);
-}
-
-/* struggling here */
 
 .feetz {
   display:flex;
@@ -246,4 +240,26 @@ a {
   background: transparent;
   color: var(--text);
   font-size: 130%;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.saved {
+  background-color: var(--dash);
+  color: black;
+}
+
+.sta, .stb, .stc, .std {
+  background-color: var(--stgroup);
+  display: grid;
+}
+
+#update-user, #delete-user, #view-user {
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
