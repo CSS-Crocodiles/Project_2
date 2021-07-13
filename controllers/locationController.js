@@ -39,6 +39,18 @@ module.exports = function (db) {
       });
     },
 
+    // createLocation: function (req, res) {
+    //   console.log('THE DATA COMING IN ', req.body);
+    //   db.Location.create({
+    //     location_name: req.body.name,
+    //     starting_date: req.body.start,
+    //     ending_date: req.body.end,
+    //     user_id: req.session.passport.user.id }).then(function (dbNewLoc) {
+    //     console.log('HERE IS THE NEW LOCATION DATA: ', dbNewLoc);
+    //     res.json(dbNewLoc);
+    //   });
+    // },
+
     // Delete an example by id WORKS
     deleteLocations: function (req, res) {
       console.log('REQUEST coming in: ', req.params.id);
