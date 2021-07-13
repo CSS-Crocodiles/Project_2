@@ -123,7 +123,7 @@ hr {
   text-align: center;
 }
 
-.wrapper{
+/* .wrapper{
   display: flex;
   position: relative;
 }
@@ -186,7 +186,7 @@ hr {
   color: #bdb8d7;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-}
+} */
 
 .panther {
   margin: 15px;
