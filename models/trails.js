@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const Trails = sequelize.define('trails', {
+  const Trails = sequelize.define('Trails', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -18,13 +18,13 @@ module.exports = function (sequelize, DataTypes) {
     timestamps: false
   });
 
-  Trails.associate = function (models) {
-    Trails.belongsTo(models.Location, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // Trails.associate = function (models) {
+   // Trails.belongsTo(models.Location, {
+    //  foreignKey: {
+    //    allowNull: false
+    //  }
+   // });
+  // };
 
   return Trails;
 };

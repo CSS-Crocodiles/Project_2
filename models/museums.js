@@ -25,11 +25,7 @@ module.exports = function (sequelize, DataTypes) {
     LocationId: {
       type: DataTypes.INTEGER,
       references: {
-<<<<<<< HEAD
-        model: 'Location',
-=======
         model: 'Locations',
->>>>>>> d8d9d5eb2ce08f207d7e0646b44291a0ae1f904c
         key: 'id'
       }
     }

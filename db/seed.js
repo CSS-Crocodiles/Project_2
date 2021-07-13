@@ -32,13 +32,13 @@ module.exports = (db) => {
             address: '1234 pretty trail lane',
             LocationId: 1
           }).then(() => {
-            db.parks.create({
+            db.Parks.create({
               id: 1,
               park_name: 'sample park',
               address: '1234 pretty park lane',
               LocationId: 1
             }).then(() => {
-              db.museums.create({
+              db.Museums.create({
                 id: 1,
                 museum_name: 'the best museum',
                 address: '1234 pretty museum',

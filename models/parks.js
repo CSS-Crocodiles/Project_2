@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const parks = sequelize.define('parks', {
+  const parks = sequelize.define('Parks', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -18,13 +18,13 @@ module.exports = function (sequelize, DataTypes) {
     timestamps: false
   });
 
-  parks.associate = function (models) {
-    parks.belongsTo(models.Location, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // parks.associate = function (models) {
+  //  parks.belongsTo(models.Location, {
+   //   foreignKey: {
+   //     allowNull: false
+  //    }
+ //   });
+ // };
 
   return parks;
 };
