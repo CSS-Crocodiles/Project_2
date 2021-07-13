@@ -32,7 +32,8 @@ module.exports = (passport, db) => {
   router.post('/examples', AppController.createExample);
   router.delete('/examples/:id', AppController.deleteExample);
   // GET Route for the google api data
-  router.get('/getGoogleData', GoogleController.getTrip);
+  router.get('/getGoogleData', GoogleController.getTrip); // <-- TO DO: delete this line once Places connections are working
+  router.post('/getGoogleData', GoogleController.getTripNew);
   // // LOCATIONS:
   // // GET User's Location's
   // // ** Should probably be '/user' bc most likely user page**
