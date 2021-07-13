@@ -19,7 +19,7 @@ This is a website generated for North Carolina travelers on a budget. When the t
 
 ## 2. Installation
 
-    An original npm install and npm intialize will need to be ran in the user's terminal with the modules below to run the program from the terminal.  
+An original npm install and npm intialize will need to be ran in the user's terminal with the modules below to run the program from the terminal.  
 
  **Modules imported:**
  - [express](https://www.npmjs.com/package/express)
