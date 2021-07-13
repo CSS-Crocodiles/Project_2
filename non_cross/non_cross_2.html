@@ -5,22 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="../public/assets/css/style.css">
     <title>Document</title>
 </head>
 <body>
     <nav class="nav-extended">
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo center">Traveler's Landing</a>
+          <a href="#" class="brand-logo center fixed-top">Traveler's Landing</a>
         </div>
         <div class="nav-content">
           <ul class="tabs tabs-transparent">
-            <li class="tab"><a href="#test1">Test 1</a></li>
-            <li class="tab"><a class="active" href="#test2">Test 2</a></li>
-            <li class="tab disabled"><a href="#test3">Disabled Tab</a></li>
+            {{#if isloggedin}}
+            <li class="tab"><a href="/savedtrips">Saved Trips</a></li>
+            <li class="tab"><a href="/create">Create Your Next Dream Trip</a></li>
+            <li class="tab"><a href="/profile">My Profile</a></li>
+            <li class="tab"><a href="/NCDis">NCDis</a></li>
+            <li class="tab"><a href="/logout">Logout</a></li>
+            {{else}}
+            <li class="tab"><a href="/example">Example Page</a></li>
             <li class="tab"><a href="#test4">Test 4</a></li>
+            {{/if}}
           </ul>
         </div>
       </nav>
+
     
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
       
