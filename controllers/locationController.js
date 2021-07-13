@@ -22,7 +22,7 @@ module.exports = function (db) {
       console.log('THE DATA COMING IN ', req.params.id);
       db.Location.findOne({
         where: { id: req.params.id },
-        include: [{ model: db.Museums } //, { model: db.Parks }, { model: db.Trails }, { model: db.Restaurant }
+        include: [ { model: db.Parks }, { model: db.Museums }, //{ model: db.Trails }, { model: db.Restaurant }
         ] },
       console.log('MUSEUMS? ', db.Museums)
       ).then(function (dbSingleLoc) {

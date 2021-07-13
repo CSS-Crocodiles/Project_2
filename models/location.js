@@ -42,17 +42,18 @@ module.exports = function (sequelize, DataTypes) {
     });
   };
 
-  // Location.associate = function (models) {
-  // Location.hasMany(models.Parks, {
-  //   onDelete: 'cascade'
-  // });
-  // };
-
   Location.associate = function (models) {
-    Location.hasMany(models.Museums, {
-      onDelete: 'cascade'
-    });
+    Location.hasMany(models.Parks, { onDelete: 'cascade'});
+    Location.hasMany(models.Museums, { onDelete: 'cascade'});
+    Location.hasMany(models.Restaurant, { onDelete: 'cascade'});
+    Location.hasMany(models.Trails, { onDelete: 'cascade'});
   };
+
+  // Location.associate = function (models) {
+  //   Location.hasMany(models.Museums, {
+  //     onDelete: 'cascade'
+  //   });
+  // };
 
   // Location.associate = function (models) {
   //  Location.hasMany(models.Restaurant, {
