@@ -1,6 +1,8 @@
 :root {
   --dash: brown;
-
+  --nuf: white;
+  --text: black;
+  --stgroup: white;
 }
 
 *{
@@ -190,23 +192,74 @@ hr {
   margin: 15px;
 }
 
-.wow, .whoo, .wah, .tea, .newthing {
+.wow, .whoo, .wah, .tea {
   background-color: rgba(220, 20, 60, 0.644);
   color: black;
   margin: 2px;
   border-radius: 10px;
 }
 
-.cardp {
-  
+.bagels {
+  background-color: black;
+  color: white;
 }
 
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: red;
-  color: white;
-  text-align: center;
+.donuts {
+  background-color: black;
+}
+
+.tabs {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feetz {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 100px;
+}
+
+.maybz {
+  background: var(--nuf);
+  opacity: 0.5;
+  border-radius: 15%;
+}
+
+.nav-extended {
+  background: var(--nuf);
+  color: var(--text);
+}
+
+.page-footer {
+  max-height: 40px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  color: var(--text);
+  font-size: 130%;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.saved {
+  background-color: var(--dash);
+  color: black;
+}
+
+.sta, .stb, .stc, .std {
+  background-color: var(--stgroup);
+  display: grid;
+}
+
+#update-user, #delete-user, #view-user {
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
