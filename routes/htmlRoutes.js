@@ -242,3 +242,15 @@ router.get('/create', (req, res, next) => {
     res.render('create');
   }
 });
+
+router.get('/current', (req, res, next) => {
+  if (req.isAuthenticated()) {
+    const user = {
+      user: req.session.passport.user,
+      isloggedin: req.isAuthenticated()
+    };
+    res.render('current', user);
+  } else {
+    res.render('current');
+  }
+});
