@@ -14,10 +14,10 @@
             <div><a href="/logout"> <button type="btn" class="btn">Leave us....</button></a></div>
           {{else}}
             <div class="col s6">
-              <p>You need to check with <a class="nav-link" href="/login">THE ADMINISTRATION</a> before continuing.</p>
+              <p>You need to check with <a class="nav-link" href="/login"><button class="btn">THE ADMINISTRATION</button></a> before continuing.</p>
               </div>
             <div class="col s6">
-              <p>If not with the registry, <a class="nav-link" href="/login">APPLY</a></p>
+              <p>If not with the registry, <a class="nav-link" href="/register"><button class="btn">APPLY</button></a></p>
               </div>
           {{/if}}
           <h5 id="login-err-msg"></h5>
@@ -35,7 +35,7 @@
             <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="  I want to go...?">
           </div>
           <div class="col-auto">
-            <button class="btn btn-lg btn-success" type="submit">Explore!</button>
+            <button class="btn" type="submit">Explore!</button>
           </div>
         </div>
       </form>
@@ -95,9 +95,12 @@
     </div>
 
     <br><br> 
+    </div>
+    </div>
 {{/if}}
 
 {{> footer/footer }}
+
 
 
 {{> modal/login-block}}
