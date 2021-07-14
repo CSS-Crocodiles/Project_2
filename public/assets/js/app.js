@@ -134,3 +134,11 @@ $('#login').on('click', function (event) {
   });
 });
 
+var input = document.getElementById("login");
+
+// input.addEventListener("keyup", function(event) {
+//   if (event.keyCode === 13) {
+//    event.preventDefault();
+//    document.getElementById("login").click();
+//   }
+// });
