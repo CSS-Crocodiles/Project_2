@@ -44,8 +44,9 @@ module.exports = function () {
                       // console.log(`response 2 data:  `, response.json())
             console.log(`RESPONSE 2 DATA:  `, data);
             // console.log(`RESPONSE AT FIRST INDEX:  `, data.results[0].name);
-            console.log(`TEST RESULTS:  `, data.data.result.formatted_address);
-            res.json(data.data);
+            console.log(`TEST RESULTS:  `, data.data.result.formatted_address, data.data.result.name, data.data.result.weekday_text, data.data.result.price_level, data.data.result.website);
+            // res.json(data.data);
+            res.json(data.data.result.formatted_address, data.data.result.name, data.data.result.weekday_text, data.data.result.price_level, data.data.result.website);
           });
         });
     }
