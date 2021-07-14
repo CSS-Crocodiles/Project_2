@@ -22,28 +22,32 @@ module.exports = (db) => {
         db.Restaurant.create({
           restaurant_name: 'example',
           address: 'sample location',
-          hours: '1030',
-          price_level: 2,
+          price_level: 1,
+          hours: 'Monday: Closed Tuesday: 4:00 – 10:00 PM Wednesday: 4:00 – 10:00 PM Thursday: 4:00 – 10:00 PM Friday: 4:00 – 10:00 PM Saturday: 11:00 AM – 3:00 PM, 4:00 – 10:00 PM Sunday: 11:00 AM – 3:00 PM',
           LocationId: 1
         }).then(() => {
           db.Trails.create({
             id: 1,
             trail_name: 'sample trail',
             address: '1234 pretty trail lane',
-            LocationId: 1
+            LocationId: 1,
+            hours: 'Monday: Closed Tuesday: 4:00 – 10:00 PM Wednesday: 4:00 – 10:00 PM Thursday: 4:00 – 10:00 PM Friday: 4:00 – 10:00 PM Saturday: 11:00 AM – 3:00 PM, 4:00 – 10:00 PM Sunday: 11:00 AM – 3:00 PM',
+            price_level: 1
           }).then(() => {
             db.Parks.create({
               id: 1,
               park_name: 'sample park',
               address: '1234 pretty park lane',
-              LocationId: 1
+              LocationId: 1,
+              hours: 'Monday: Closed Tuesday: 4:00 – 10:00 PM Wednesday: 4:00 – 10:00 PM Thursday: 4:00 – 10:00 PM Friday: 4:00 – 10:00 PM Saturday: 11:00 AM – 3:00 PM, 4:00 – 10:00 PM Sunday: 11:00 AM – 3:00 PM',
+              price_level: 10
             }).then(() => {
               db.Museums.create({
                 id: 1,
                 museum_name: 'the best museum',
                 address: '1234 pretty museum',
-                cost: 20,
-                hours: 10,
+                price_level: 20,
+                hours: 'Monday: Closed Tuesday: 4:00 – 10:00 PM Wednesday: 4:00 – 10:00 PM Thursday: 4:00 – 10:00 PM Friday: 4:00 – 10:00 PM Saturday: 11:00 AM – 3:00 PM, 4:00 – 10:00 PM Sunday: 11:00 AM – 3:00 PM',
                 LocationId: 1
               });
             });

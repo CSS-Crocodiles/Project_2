@@ -14,12 +14,12 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    cost: {
+    price_level: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
     hours: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true
     },
     LocationId: {

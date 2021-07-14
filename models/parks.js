@@ -14,6 +14,14 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
+    price_level: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    hours: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
     LocationId: {
       type: DataTypes.INTEGER,
       references: {
@@ -27,11 +35,11 @@ module.exports = function (sequelize, DataTypes) {
 
   // parks.associate = function (models) {
   //  parks.belongsTo(models.Location, {
-   //   foreignKey: {
-   //     allowNull: false
+  //   foreignKey: {
+  //     allowNull: false
   //    }
- //   });
- // };
+  //   });
+  // };
 
   return Parks;
 };
