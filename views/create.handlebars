@@ -1,62 +1,37 @@
 {{> nav/nav-block}}
 
-{{!-- <div class="wrapper">
-    <div class="sidebar">
-        <h2></h2>
-        <ul>
-            <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
-            <li><a href="#"><i class="fas fa-user"></i>Saved Trips</a></li>
-            <li><a href="#"><i class="fas fa-map-pin"></i>Create a New Trip</a></li>
-            <li><a href="#"><i class="fas fa-project-diagram"></i>Change Current Trip</a></li>
-            <li><a href="#"><i class="fas fa-address-book"></i>Share Trip With Your Friends / Family</a></li>
-        </ul> 
-        <div class="social_media">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-github"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-      </div>
-    </div> --}}
-
 <form class= "container #607d8b blue-grey text-white">
-  <h1 for="exampledestination" class="center-align" >When Is Your Next Trip</h1>
-  <label for="date_from">From</label>
+  <h2 for="exampledestination" class="center-align">Set Your Travel Dates</h2>
+  <label for="date_from" class= "text-white">From</label>
   <input type="date" class="datepicker">
-  <label for="date_to">To</label>
+
+  <label for="date_to" class= "text-white">To</label>
   <input type="date" class="datepicker">
+
+<br><br>
 
   <div class="form-group">
-    <h1 for="exampledestination" class="center-align" >Where Are You Traveling To ?</h1>
-    <input type="destination" class="form-control" id="exampleInputEmail1" aria-describedby="" placeholder="Enter travel destination">
-    <small id="emailHelp" class="form-text text-muted">We'll Never Share Your Location With Anyone Else. (Unless You Want Us Too!)</small>
+    <h2 for="exampledestination" class="center-align" >Where Are You Traveling To ?</h2>
+    <input type="destination" class="form-control" id="exampleInputDestination" aria-describedby="" placeholder="Enter travel destination">
+    <small id="emailHelp" class="form-text text-white">We'll Never Share Your Location With Anyone Else. (Unless You Want Us Too!)</small>
   </div>
-  <h2 class="center-align">What Activities Would You Be Interested In Doing ?</h2>
-    <p>
-      <label>
-        <input type="checkbox" class="filled-in" checked="checked" />
-        <span>Museums</span>
-      </label>
-    </p>
-        <p>
-      <label>
-        <input type="checkbox" class="filled-in" checked="checked" />
-        <span>Parks</span>
-      </label>
-    </p>
-    <p>
-      <label>
-        <input type="checkbox" class="filled-in" checked="checked" />
-        <span>Restaurant</span>
-      </label>
-    </p>
-    <p>
-      <label>
-        <input type="checkbox" class="filled-in" checked="checked" />
-        <span>Trails</span>
-      </label>
-    </p>
 
+<br><br>
+
+  <div>
+  <h2 class="center-align">What Activities Peak Your Interest ?</h2>
+  <select class="browser-default">
+    <option value="" disabled selected>Choose Your Activity</option>
+    <option value="1">Museums</option>
+    <option value="2">Parks</option>
+    <option value="3">Restaurant</option>
+    <option value="4">Trails</option>
+  </select>
 </div>
-<a class="waves-effect waves-light btn center-align"><i class="material-icons left">cloud</i>Submit</a>
+
+<br><br>
+
+<a class="waves-effect waves-light btn">Submit <i class="fas fa-bus"></i></a>
 
 </form>
 <script> 
@@ -67,6 +42,4 @@
         
 </script>
         
-
-
 {{> footer/footer }}
