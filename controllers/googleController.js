@@ -21,12 +21,33 @@ module.exports = function () {
       try {
         const getCity = req.body.city;
         const getState = req.body.state;
-        const urlResponse = await axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${getCity}+${getState}&type=restaurant&radius=5000&strictbounds&key=${process.env.GOOGLE_MAPS_KEY}`);
+        // --> this works:  const urlResponse = await axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${getCity}+${getState}&type=restaurant&radius=5000&strictbounds&fields=name,opening_hours&key=${process.env.GOOGLE_MAPS_KEY}`);
+        const urlResponse = await (`https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJHSHXl4T0rIkRmwZHPIxZC6Y&key=${process.env.GOOGLE_MAPS_KEY}`);
         console.log(`--> getTripAlt - RESPONSE data:  ${JSON.stringify(urlResponse.data.results)}`);
         res.json(urlResponse.data); // <-- this works for now
       } catch (err) {
         console.log('Request for Places failed', err);
       }
+    },
+  // };
+// };
+    getTripNewDetails: function (req, res) {
+      const getCity = req.body.city;
+      const getState = req.body.state;
+      axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${getCity}+${getState}&type=restaurant&radius=5000&strictbounds&key=${process.env.GOOGLE_MAPS_KEY}`)
+        .then(function (response) {
+          console.log(`FIRST RESPONSE:  `, response.data.results)
+          const cityCode = response.data.results[0];
+          axios.get(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${cityCode.place_id}&key=${process.env.GOOGLE_MAPS_KEY}`)
+          .then(function (data) {
+                      // response.json()
+                      // console.log(`response 2 data:  `, response.json())
+            console.log(`RESPONSE 2 DATA:  `, data);
+            // console.log(`RESPONSE AT FIRST INDEX:  `, data.results[0].name);
+            console.log(`TEST RESULTS:  `, data.data.result.formatted_address);
+            res.json(data.data);
+          });
+        });
     }
   };
 };
