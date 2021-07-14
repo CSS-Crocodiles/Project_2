@@ -1,3 +1,5 @@
+console.log('RUNNING')
+
 $('#add-user').on('click', function (event) {
   event.preventDefault();
 
@@ -110,7 +112,10 @@ $('#go-home').on('click', function (event) {
   window.location.href = '/';
 });
 
+
+
 $('#login').on('click', function (event) {
+  console.log('CLICKED????')
   event.preventDefault();
 
   const user = {
