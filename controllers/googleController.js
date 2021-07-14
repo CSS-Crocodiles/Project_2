@@ -34,7 +34,8 @@ module.exports = function () {
     getTripNewDetails: function (req, res) {
       const getCity = req.body.city;
       const getState = req.body.state;
-      axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${getCity}+${getState}&type=restaurant&radius=5000&strictbounds&key=${process.env.GOOGLE_MAPS_KEY}`)
+      const getParameter = req.body.parameter;
+      axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${getCity}+${getState}&type=${getParameter}&radius=5000&strictbounds&key=${process.env.GOOGLE_MAPS_KEY}`)
         .then(function (response) {
           console.log(`FIRST RESPONSE:  `, response.data.results)
           const cityCode = response.data.results[0];
@@ -44,8 +45,9 @@ module.exports = function () {
                       // console.log(`response 2 data:  `, response.json())
             console.log(`RESPONSE 2 DATA:  `, data);
             // console.log(`RESPONSE AT FIRST INDEX:  `, data.results[0].name);
-            console.log(`TEST RESULTS:  `, data.data.result.formatted_address);
-            res.json(data.data);
+            console.log(`TEST RESULTS:  `, data.data.result.formatted_address, data.data.result.name, data.data.result.weekday_text, data.data.result.price_level, data.data.result.website);
+            // res.json(data.data);
+            res.json(data.data.result.formatted_address, data.data.result.name, data.data.result.weekday_text, data.data.result.price_level, data.data.result.website);
           });
         });
     }

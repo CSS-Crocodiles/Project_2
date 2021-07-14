@@ -12,10 +12,11 @@ const newTripHandler = async (event) => {
   console.log(`--> SUBMIT button was clicked`);
   const city = document.querySelector('#example-text').value.trim();
   const state = document.querySelector('#example-description').value.trim();
-  if (city && state) {
+  const parameter = document.querySelector('#example-parameter').value.trim();
+  if (city && state && parameter) {
     fetch(`/api/getGoogleData`, {
       method: 'POST',
-      body: JSON.stringify({ 'city': city, 'state': state }),
+      body: JSON.stringify({ 'city': city, 'state': state, 'parameter': parameter }),
       headers: {
         'Content-Type': 'application/json'
       }
