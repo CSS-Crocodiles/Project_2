@@ -34,7 +34,8 @@ module.exports = function () {
     getTripNewDetails: function (req, res) {
       const getCity = req.body.city;
       const getState = req.body.state;
-      axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${getCity}+${getState}&type=restaurant&radius=5000&strictbounds&key=${process.env.GOOGLE_MAPS_KEY}`)
+      const getParameter = req.body.parameter;
+      axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${getCity}+${getState}&type=${getParameter}&radius=5000&strictbounds&key=${process.env.GOOGLE_MAPS_KEY}`)
         .then(function (response) {
           console.log(`FIRST RESPONSE:  `, response.data.results)
           const cityCode = response.data.results[0];
