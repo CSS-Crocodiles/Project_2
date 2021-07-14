@@ -14,25 +14,24 @@
             <label for="example-parameter-x">Example Parameter</label>
             <select class="form-select form-select-lg mb-3" id="example-parameter" name="choices">
               <option selected>Select veune type</option>
-              <option value="1">Restaurant</option>
-              <option value="2">Museum</option>
-              <option value="3">Park</option>
+              <option value="1">restaurant</option>
+              <option value="2">museum</option>
+              <option value="3">park</option>
             </select>
             <!--<label for="example-parameter">Example Parameter</label>-->
             <!--<textarea class="form-control" id="example-parameter" aria-describedby="example-parameter" placeholder="Enter Example Parameter"></textarea>-->
           </div>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
-        <!--
-        <h4>Examples belong to this user:</h4>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>-->
+        <h4>List of choices:</h4>
+        <ul id="choices-list" class="list-group">
+          {{!-- {{#each placeDataCollection}} --}}
+          {{!-- <li data-id="{{this}}" class="list-group-item">
+            <a>{{this}}</a> --}}
+            {{!-- <button class="btn btn-danger float-right delete">ｘ</button> --}}
+          {{!-- </li> --}}
+          {{!-- {{/each}} --}}
+        </ul>
       </div>
     </div>
   </div>

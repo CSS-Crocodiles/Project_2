@@ -88,6 +88,22 @@ module.exports = (db) => {
     }
   });
 
+  // router.get('/example', (req, res, next) => {
+  //   if (req.isAuthenticated()) {
+  //     const user = {
+  //       user: req.session.passport.user,
+  //       isloggedin: req.isAuthenticated()
+  //     };
+  //     res.render('example', { 
+  //       user,
+  //       msg: 'Here are some choices!',
+  //       data: placeDataCollection
+  //     });
+  //   } else {
+  //     res.redirect('/');
+  //   }
+  // });
+
   // Load example page and pass in an example by id
   // NOTES FROM KATELIN: here is the individual examples, so maybe the locations by id?
   // we could also take it further for when the user clicks on the museums, or parks, or

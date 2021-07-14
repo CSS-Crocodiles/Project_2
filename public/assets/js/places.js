@@ -6,6 +6,7 @@ const requestOptions = {
 };
 let placePriceLevelEmojied;
 const dropdownParameter = document.getElementById('example-parameter');
+const googleData = []
 
 console.log(`--> places.js IS RUNNING`);
 
@@ -25,6 +26,8 @@ const newTripHandler = async (event) => {
         'Content-Type': 'application/json'
       }
     }).then(function (response) {
+      //console.log(`******RESPONSE DATA:  DATA LOAD - all:  `, response.json());
+      console.log(`--> FIRST RESPONSE:  `, response);
       return response.json();
     }).then(function (data) {
       /*
@@ -57,8 +60,20 @@ const newTripHandler = async (event) => {
       }
       console.log('RESPOSNE DATA - FIRST RESULT, NAME:  ', data.data.results[0].name);
       */
-      console.log(`RESPONSE DATA:  DATA LOAD - all:  `, data.placeDataLoad);
-      console.log(`RESPOSNE DATA:  DATA LOAD - first:  `, data.placeDataLoad[0]);
+      // const data = placeDataCollection
+      // console.log(`******RESPONSE DATA:  DATA LOAD - all:  `, data);
+      console.log(`RESPONSE DATA:  DATA LOAD - all:  `, data);
+
+      data.map(d => {
+        const choicesList = document.getElementById('choices-list')
+
+        $('body').append(`<li>${d.name}</li>`)
+      })
+      // const googleList = data
+      // googleData.push(data);
+      // console.log(`#*#*# GOOGLE CONST #*#*#  `, googleData);
+      
+      // console.log(`RESPOSNE DATA:  DATA LOAD - first:  `, data.placeDataLoad[0]);
       // functionHere(data.results) <-- function to loop through data could go here or in separate function
     });
   }
