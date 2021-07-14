@@ -274,7 +274,7 @@ h3 {
   text-align: center;
 }
 
-button, .btn {
+.btn {
   background-color: var(--buttons);
   border-radius: 50px;
 }
