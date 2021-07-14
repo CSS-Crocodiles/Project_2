@@ -5,11 +5,11 @@
         <div class="nav-content">
           <ul class="tabs">
             {{#if isloggedin}}
-            <li class="tab"><a href="/savedtrips">Saved Trips <i class="fas fa-suitcase-rolling"></i> </a></li>
-            <li class="tab"><a href="/create" class="animate__animated animate__bounce ">Create Your Next Dream Trip <i class="fas fa-map-pin"></i> </a></li>
-            <li class="tab"><a href="/profile" class="animate__animated animate__bounce">My Profile <i class="fas fa-home"></i> </a></li>
-            <li class="tab"><a href="/NCDis" class="animate__animated animate__bounce">NCDis <i class="fas fa-project-diagram"></i> </a></li>
-            <li class="tab"><a href="/logout" class="animate__animated animate__bounce ">Logout <i class="fas fa-sign-out-alt"></i> </a></li>
+            <li class="tab"><a href="/savedtrips" class="animate__animated animate__rubberBand">Saved Trips <i class="fas fa-suitcase-rolling"></i> </a></li>
+            <li class="tab"><a href="/create" class="animate__animated animate__rubberBand ">Create Your Next Dream Trip <i class="fas fa-map-pin"></i> </a></li>
+            <li class="tab"><a href="/profile" class="animate__animated animate__rubberBand">My Profile <i class="fas fa-home"></i> </a></li>
+            <li class="tab"><a href="/NCDis" class="animate__animated animate__rubberBand">NCDis <i class="fas fa-project-diagram"></i> </a></li>
+            <li class="tab"><a href="/logout" class="animate__animated animate__rubberBand ">Logout <i class="fas fa-sign-out-alt"></i> </a></li>
             {{else}}
             <li class="tab"><a href="/example" class="animate__animated animate__bounce">Example Page</a></li>
             <li class="tab"><a href="#test4" class="animate__animated animate__bounce">Test 4</a></li>
@@ -18,4 +18,4 @@
         </div>
       </nav>
 
-{{> modal/login-block}}
+{{!-- {{> modal/login-block}} --}}
