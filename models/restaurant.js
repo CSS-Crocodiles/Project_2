@@ -19,7 +19,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true
     },
     hours: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true
     },
     LocationId: {
