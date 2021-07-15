@@ -160,11 +160,10 @@ $('#add-location').on('click', function (event) {
       data: newLocation
     }).then(() => {
       // console.log('newLocation:', newLocation);
-      window.location.href = '/create';
-    });
+      // window.location.href = '/create';
+    }); return false
   } else {
     console.log('**NEED MORE INFO**');
     $('#create-err-msg').empty('').text('**Please fill out entire form**');
   }
-  newTripHandler ()
 });
