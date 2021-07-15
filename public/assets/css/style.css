@@ -185,8 +185,8 @@ h1 {
 }
 
 .saved {
-  background-color: var(--dash);
-  color: black;
+text-align: center;
+
 }
 
 .sta {
