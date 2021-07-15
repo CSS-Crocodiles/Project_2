@@ -5,7 +5,7 @@ const requestOptions = {
   redirect: 'follow'
 };
 let placePriceLevelEmojied;
-const dropdownParameter = document.getElementById('example-parameter');
+const dropdownParameter = document.getElementById('dropDown');
 const googleData = []
 
 console.log(`--> places.js IS RUNNING`);
@@ -13,7 +13,7 @@ console.log(`--> places.js IS RUNNING`);
 const newTripHandler = async (event) => {
   event.preventDefault();
   console.log(`--> SUBMIT button was clicked`);
-  const city = document.getElementById('example-text').value.trim();
+  const city = document.getElementById('inputFirst').value.trim();
   // const state = document.querySelector('#example-description').value.trim();
   const parameter = dropdownParameter.options[dropdownParameter.selectedIndex].text.toLowerCase();
   console.log(`--> paramter VALUE:  `, document.getElementById('example-parameter').value);
@@ -65,7 +65,7 @@ const newTripHandler = async (event) => {
       console.log(`RESPONSE DATA:  DATA LOAD - all:  `, data);
 
       data.map(d => {
-        const choicesList = document.getElementById('choices-list')
+        const choicesList = document.getElementById('sta')
 
         $('body').append(`<li>${d.name}${d.address}${d.price}${d.website}</li>`)
       })
