@@ -7,6 +7,11 @@
   --bgd: brown; /* banner background */
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
 *{
   margin: 0;
   padding: 0; 
@@ -31,7 +36,6 @@
 }
 
 .base {
-  background-color: var(--dash);
   margin-top: 0% !important;
   padding-top: 2%;
   margin-bottom: 0%; 
@@ -110,12 +114,7 @@ hr {
   line-height: 2.5;
 }
 
-.card-body {
-  color: #444;
-}
-
 .card-title {
-  color: white !important;
   font-size: 200%;
   justify-content: center;
   margin-left: 10%;
@@ -292,4 +291,8 @@ body {
 
 .john {
   margin-top: 2%;
+}
+
+.img1 {
+
 }
