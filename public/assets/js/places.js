@@ -18,6 +18,7 @@ const newTripHandler = async (event) => {
   const parameter = dropdownParameter.options[dropdownParameter.selectedIndex].text.toLowerCase();
   console.log(`--> paramter VALUE:  `, document.getElementById('select1').value);
   console.log(`--> parameter TEXT:  `, parameter);
+  console.log(`--> parameter CITY:  `, city)
   if (city && parameter) {
     fetch(`/api/getGoogleData`, {
       method: 'POST',
