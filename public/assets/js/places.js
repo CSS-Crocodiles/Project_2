@@ -5,7 +5,9 @@ const requestOptions = {
   redirect: 'follow'
 };
 let placePriceLevelEmojied;
-const dropdownParameter = document.getElementById('dropDown');
+
+const dropdownParameter = document.getElementById('select1');
+
 const googleData = []
 
 console.log(`--> places.js IS RUNNING`);
@@ -16,8 +18,9 @@ const newTripHandler = async (event) => {
   const city = document.getElementById('inputFirst').value.trim();
   // const state = document.querySelector('#example-description').value.trim();
   const parameter = dropdownParameter.options[dropdownParameter.selectedIndex].text.toLowerCase();
-  console.log(`--> paramter VALUE:  `, document.getElementById('example-parameter').value);
+  console.log(`--> paramter VALUE:  `, document.getElementById('select1').value);
   console.log(`--> parameter TEXT:  `, parameter);
+  console.log(`--> parameter CITY:  `, city)
   if (city && parameter) {
     fetch(`/api/getGoogleData`, {
       method: 'POST',
@@ -65,7 +68,9 @@ const newTripHandler = async (event) => {
       console.log(`RESPONSE DATA:  DATA LOAD - all:  `, data);
 
       data.map(d => {
-        const choicesList = document.getElementById('sta')
+
+        const choicesList = document.getElementById('listedItems1')
+
 
         $('body').append(`<li>${d.name}${d.address}${d.price}${d.website}</li>`)
       })
@@ -80,4 +85,6 @@ const newTripHandler = async (event) => {
 };
 
 // document.querySelector('.form-group').addEventListener('submit', newTripHandler);
-document.querySelector('#submit').addEventListener('click', newTripHandler);
+document.querySelector('#add-interest').addEventListener('click', newTripHandler);
+
+
