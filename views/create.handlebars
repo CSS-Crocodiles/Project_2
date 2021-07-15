@@ -31,10 +31,20 @@
 
 <br><br>
 
-<a class="waves-effect waves-light btn" href="/current" id="add-location">Submit <i class="fas fa-bus"></i></a>
+<a class="waves-effect waves-light btn" 
+{{!-- href="/current"  --}}
+id="add-location">Submit <i class="fas fa-bus"></i></a>
 
 
 </form>
+
+<div>
+        <h4>List Of choices:</h4>
+        <ul id="choices-list" class="list-group">
+        </ul>
+</div>
+
+<script src="/assets/js/places.js"></script>
 {{!-- <script> 
   ('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month

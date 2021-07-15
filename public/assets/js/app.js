@@ -166,4 +166,5 @@ $('#add-location').on('click', function (event) {
     console.log('**NEED MORE INFO**');
     $('#create-err-msg').empty('').text('**Please fill out entire form**');
   }
+  newTripHandler ()
 });

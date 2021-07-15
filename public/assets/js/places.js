@@ -65,7 +65,7 @@ const newTripHandler = async (event) => {
       console.log(`RESPONSE DATA:  DATA LOAD - all:  `, data);
 
       data.map(d => {
-        const choicesList = document.getElementById('sta')
+        const choicesList = document.getElementById('choices-list')
 
         $('body').append(`<li>${d.name}${d.address}${d.price}${d.website}</li>`)
       })
@@ -80,4 +80,4 @@ const newTripHandler = async (event) => {
 };
 
 // document.querySelector('.form-group').addEventListener('submit', newTripHandler);
-document.querySelector('#submit').addEventListener('click', newTripHandler);
+document.querySelector('#add-location').addEventListener('click', newTripHandler);
