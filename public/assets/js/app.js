@@ -161,6 +161,23 @@ $('#add-location').on('click', function (event) {
     }).then(() => {
       // console.log('newLocation:', newLocation);
       // window.location.href = '/create';
+      console.log('****OUR NEW LOCATION?!?!', newLocation)
+      var settings = {
+        "url": "http://localhost:3333/api/location",
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+          "Content-Type": "application/json",
+          // "Cookie": "userId=s%3AZC_190bby-nQOGKI5FkdmiS-8Da0HowE.AvGBwNqgprJoo%2F53eVNZQVQhM23srwR9BDmnq7kz2EU"
+        },
+      };
+      
+      $.ajax(settings).done(function (response) {
+        const targetIndex = response.filter(locationData => (locationData.location_name === newLocation.location_name && locationData.starting_date === newLocation.starting_date && locationData.ending_date === newLocation.ending_date));
+        console.log("----HEORNIEROHE ------", targetIndex);
+        console.log("ID PLEASE", targetIndex[0].id);
+        localStorage.setItem('key', targetIndex[0].id)
+      });
       return false;
     });
   } else {
@@ -168,6 +185,7 @@ $('#add-location').on('click', function (event) {
     $('#create-err-msg').empty('').text('**Please fill out entire form**');
   }
 });
+
 
 
 document.addEventListener('DOMContentLoaded', function() {

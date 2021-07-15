@@ -12,7 +12,14 @@ const loopAndGetData = (cityCode) => {
         let placeHoursAll;
         let placeWebsite;
         let placePriceLevel;
+        let placeId
         
+        if (!data.data.result.place_id) {
+          placeId = 'Name not provided'
+        } else {
+          placeId = data.data.result.place_id
+        }
+
         if (!data.data.result.name) {
           placeName = 'Name not provided'
         } else {
@@ -45,7 +52,7 @@ const loopAndGetData = (cityCode) => {
           placeWebsite = data.data.result.website;
         }
         
-        placeDataCollection = { 'name': placeName, 'address': placeAddress, 'price': placePriceLevelEmojied, 'website': placeWebsite }; //'hours': placeHoursAll,
+        placeDataCollection = { 'place_id': placeId, 'name': placeName, 'address': placeAddress, 'price': placePriceLevelEmojied, 'website': placeWebsite }; //'hours': placeHoursAll,
         // console.log('PLACE DATA COLLECTION', placeDataCollection)
         return placeDataCollection 
         // console.log('place data collectino ', placeDataCollection);
