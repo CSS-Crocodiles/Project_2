@@ -83,7 +83,6 @@ body {
   margin-top: 5%;
   border-radius: 10px;
   margin-bottom: 2%;
-  
 }
 
 [data-useremail="true"] {
@@ -133,8 +132,6 @@ hr {
 }
 
 .wow, .whoo, .wah, .tea {
-  background-color: rgba(220, 20, 60, 0.644);
-  color: black;
   margin: 2px;
   border-radius: 10px;
 }
@@ -289,7 +286,3 @@ body {
   color: var(--text) !important;
 }
 
-.bulk {
-  background-color: black !important;
-  color: white !important;
-}
