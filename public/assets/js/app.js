@@ -158,7 +158,8 @@ $('#add-location').on('click', function (event) {
       url: '/api/location',
       data: newLocation
     }).then(() => {
-      window.location.href = '/current';
+      console.log("newLocation", newLocation)
+      window.location.href = '/create';
     });
   } else {
     console.log('**NEED MORE INFO**');
