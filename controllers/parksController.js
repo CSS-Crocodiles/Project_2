@@ -25,7 +25,7 @@ module.exports = function (db) {
       db.Location.findOne({
         where: { id: req.params.id }
       },
-      console.log('PARKS?', db.Parks)
+      console.log('WHAT IS HERE?!??',req.params.id)
       );
       db.Parks.create({ ...req.body, LocationId: req.params.id })
         .then(function (newPark) {
