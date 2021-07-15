@@ -1,22 +1,23 @@
     <nav class="nav-extended">
         <div class="nav-wrapper">
-          <a class="brand-logo center fixed-top">Traveler's Landing</a>
+          <div class="brand-logo center fixed-top">Traveler's Landing</div>
+          <a class="brand-logo center fixed-top"></a>
         </div>
         <div class="nav-content">
           <ul class="tabs">
             {{#if isloggedin}}
 
-            <li class="tab"><a href="/create" class="animate__animated animate__rubberBand ">Create Your Next Dream Trip <i class="fas fa-map-pin"></i> </a></li>
-            <li class="tab"><a href="/current" class="animate__animated animate__rubberBand ">Current Trip <i class="fas fa-car"></i> </a></li>
-            <li class="tab"><a href="/savedtrips" class="animate__animated animate__rubberBand">Saved Trips <i class="fas fa-suitcase-rolling"></i> </a></li>
-            <li class="tab"><a href="/profile" class="animate__animated animate__rubberBand">My Profile <i class="fas fa-home"></i> </a></li>
-            <li class="tab"><a href="/NCDis" class="animate__animated animate__rubberBand">NCDis <i class="fas fa-project-diagram"></i> </a></li>
-            <li class="tab"><a href="/logout" class="animate__animated animate__rubberBand ">Logout <i class="fas fa-sign-out-alt"></i> </a></li>
+            <li class="tab"><a href="/create"><button class="btn-nav animate__animated animate__rubberBand ">Create Your Next Trip <i class="fas fa-map-pin"></i></button></a></li>
+            <li class="tab"><a href="/current"><button class="btn-nav animate__animated animate__rubberBand ">Current Trip <i class="fas fa-car"></i></button></a></li>
+            <li class="tab"><a href="/savedtrips"><button class="btn-nav animate__animated animate__rubberBand">Saved Trips <i class="fas fa-suitcase-rolling"></i></button></a></li>
+            <li class="tab"><a href="/profile"><button class="btn-nav animate__animated animate__rubberBand">My Profile <i class="fas fa-home"></i></button></a></li>
+            <li class="tab"><a href="/NCDis"><button class="btn-nav animate__animated animate__rubberBand">NCDis <i class="fas fa-project-diagram"></i></button></a></li>
+            <li class="tab"><a href="/logout"><button class="btn-nav animate__animated animate__rubberBand ">Logout <i class="fas fa-sign-out-alt"></i></button></a></li>
             {{else}}
-            <li class="tab"><a href="/example" class="animate__animated animate__rubberBand">Example Page</a></li>
-            <li class="tab"><a href="/dashboard" class="animate__animated animate__rubberBand">Dashboard</a></li>
+            <li class="tab"><a href="/example"><button class="btn-nav animate__animated animate__rubberBand">Example Page <i class="far fa-bookmark"></i></button></a></li>
+            <li class="tab"><a href="/dashboard"><button class="btn-nav animate__animated animate__rubberBand">Dashboard <i class="fas fa-door-open"></i></button></a></li>
             {{/if}}
-          </ul>
+          </ul> 
         </div>
       </nav>
 
