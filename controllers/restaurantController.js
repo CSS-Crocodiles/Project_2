@@ -20,6 +20,18 @@ module.exports = function (db) {
         res.json(dbSingleRestaurant);
       });
     },
+    // CREATE new Restaurant
+    createRestaurant: function (req, res) {
+      db.Location.findOne({
+        where: { id: req.params.id }
+      },
+      console.log('RESTAURANTS?', db.Restaurant)
+      );
+      db.Restaurant.create({ ...req.body, LocationId: req.params.id })
+        .then(function (newRestaurant) {
+          res.json(newRestaurant);
+        });
+    },
     // Delete an example by id
     deleteRestaurant: function (req, res) {
       db.Restaurant.destroy({ where: { id: req.params.id } }).then(function (dbRestaurant) {

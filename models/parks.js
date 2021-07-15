@@ -6,7 +6,7 @@ module.exports = function (sequelize, DataTypes) {
       autoIncrement: true,
       primaryKey: true
     },
-    park_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     },

@@ -185,14 +185,15 @@ h1 {
 }
 
 .saved {
-text-align: center;
-
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .sta {
   text-align: center;
   margin: 2%;
-  display: grid;
   border-radius: 10px;
 }
 

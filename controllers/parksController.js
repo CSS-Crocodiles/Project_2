@@ -20,6 +20,18 @@ module.exports = function (db) {
         res.json(dbSinglePark);
       });
     },
+    // CREATE new Park
+    createPark: function (req, res) {
+      db.Location.findOne({
+        where: { id: req.params.id }
+      },
+      console.log('PARKS?', db.Parks)
+      );
+      db.Parks.create({ ...req.body, LocationId: req.params.id })
+        .then(function (newPark) {
+          res.json(newPark);
+        });
+    },
     // Delete an example by id
     deletePark: function (req, res) {
       db.Parks.destroy({ where: { id: req.params.id } }).then(function (dbPark) {
