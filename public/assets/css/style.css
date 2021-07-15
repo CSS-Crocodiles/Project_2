@@ -39,6 +39,7 @@
   margin-top: 0% !important;
   padding-top: 2%;
   margin-bottom: 0%; 
+  text-align: center;
 }
 
 body {
@@ -117,7 +118,7 @@ hr {
 .card-title {
   font-size: 200%;
   justify-content: center;
-  margin-left: 10%;
+  margin-left: 25%;
 }
 
 .card-name {
@@ -291,4 +292,9 @@ body {
 
 .img1 {
 
+}
+
+.profileCard {
+  align-items: center;
+  justify-content: center;
 }
