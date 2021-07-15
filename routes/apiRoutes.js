@@ -51,39 +51,46 @@ module.exports = (passport, db) => {
   // // (maybe add a PUT here to update location parameters like date?)
 
   // // MUSEUMS:
-  // // GET specific Museum based on Museums id
-  router.get('/museums/:id', MuseumController.getSingleMuseum);
   // POST create a new musuem
+  router.post('/location/:id/museums', MuseumController.createMuseum);
   // router.post('/museums', MuseumController.createMuseum);
+  // // GET specific Museum based on Museums id
+  router.get('/location/:id/museums/:id', MuseumController.getSingleMuseum);
   // // (maybe add a DELETE here to remove a Museum?)
-  router.delete('/museums/:id', MuseumController.deleteMuseum);
+  router.delete('/location/:id/museums/:id', MuseumController.deleteMuseum);
 
   // // PARKS:
+  // POST to create a park under a specific location
+  router.post('/location/:id/parks', ParksController.createPark);
   // // GET specific Park based on Park id
   router.get('/parks/:id', ParksController.getSinglePark);
   // // (maybe add a DELETE here to remove a Park?)
   router.delete('/parks/:id', ParksController.deletePark);
 
   // // RESTAURANTS:
+  // POST to create a restaurant under a specific location
+  router.post('/location/:id/restaurants', RestaurantController.createRestaurant);
   // // GET specific Restaurant based on Restaurants id
   router.get('/restaurants/:id', RestaurantController.getSingleRestaurant);
   // // (maybe add a DELETE here to remove a Restaurant?)
   router.delete('/restaurants/:id', RestaurantController.deleteRestaurant);
 
   // // TRAILS:
+  // POST to create a trail under a specific location
+  router.post('/location/:id/trails', TrailsController.createTrail);
   // // GET specific Trail based on Trails id
-  router.get('/trails/:id', TrailsController.getSingleTrail);
+  router.get('/location/:id/trails/:id', TrailsController.getSingleTrail);
   // // (maybe add a DELETE here to remove a Trail?)
-  router.delete('/trails/:id', TrailsController.deleteTrail);
+  router.delete('/location/:id/trails/:id', TrailsController.deleteTrail);
 
   // CREATE:
   // POST to create a museum under a specific location
-  router.post('/location/:id/museums', CreateController.createMuseum);
-  // POST to create a trail under a specific location
-  router.post('/location/:id/trails', CreateController.createTrail);
-  // POST to create a park under a specific location
-  router.post('/location/:id/parks', CreateController.createPark);
-  // POST to create a restaurant under a specific location
-  router.post('/location/:id/restaurants', CreateController.createRestaurant);
+  // router.post('/location/:id/museums', CreateController.createMuseum);
+  // // POST to create a trail under a specific location
+  // router.post('/location/:id/trails', CreateController.createTrail);
+  // // POST to create a park under a specific location
+  // router.post('/location/:id/parks', CreateController.createPark);
+  // // POST to create a restaurant under a specific location
+  // router.post('/location/:id/restaurants', CreateController.createRestaurant);
   return router;
 };

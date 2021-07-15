@@ -20,6 +20,18 @@ module.exports = function (db) {
         res.json(dbSingleTrail);
       });
     },
+    // CREATE new Trail
+    createTrail: function (req, res) {
+      db.Location.findOne({
+        where: { id: req.params.id }
+      },
+      console.log('TRAILS?', db.Trails)
+      );
+      db.Trails.create({ ...req.body, LocationId: req.params.id })
+        .then(function (newTrail) {
+          res.json(newTrail);
+        });
+    },
     // Delete an trail by id
     deleteTrail: function (req, res) {
       db.Trails.destroy({ where: { id: req.params.id } }).then(function (dbTrail) {

@@ -142,3 +142,26 @@ var input = document.getElementById("login");
 //    document.getElementById("login").click();
 //   }
 // });
+
+$('#add-location').on('click', function (event) {
+  event.preventDefault();
+
+  const newLocation = {
+    location_name: $('#inputFirst').val().trim(),
+    starting_date: $('#inputStart').val().trim(),
+    ending_date: $('#inputEnd').val().trim(),
+  };
+
+  if (newLocation.location_name.length > 0 && newLocation.starting_date.length > 0 && newLocation.ending_date.length > 0) {
+    $.ajax({
+      type: 'POST',
+      url: '/api/location',
+      data: newLocation
+    }).then(() => {
+      window.location.href = '/current';
+    });
+  } else {
+    console.log('**NEED MORE INFO**');
+    $('#create-err-msg').empty('').text('**Please fill out entire form**');
+  }
+});
