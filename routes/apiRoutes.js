@@ -42,7 +42,7 @@ module.exports = (passport, db) => {
   // // ** Should probably be '/user' bc most likely user page**
   router.get('/location', LocationController.getLocation);
   // // POST create a new location - need a page for this**
-  router.post('/location/:id', LocationController.createLocation);
+  router.post('/location', LocationController.createLocation);
   // // GET specific Location based on location id with all
   // // of their places to visit ('parks', 'trails', 'musuems', restaurant').
   router.get('/location/:id', LocationController.getSingleLocation);

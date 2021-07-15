@@ -76,7 +76,7 @@ const newTripHandler = async (event) => {
         $('body').append(`<a class="dButton btn" id="${cityCode}" ><li>${d.name} && ${d.address} && ${d.price} && ${d.website}</li></a>`)
       // .then(function (d) {
         // wrap these elements in a parent element
-        $('#cityCode').on('click', function await (event) {
+        $('.dButton').on('click', function await (event) {
           event.preventDefault();
           console.log("BUtton Clicked on -", cityCode)
           const newParameter = {
