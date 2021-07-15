@@ -43,7 +43,7 @@ const newTripHandler = async (event) => {
         let locId = localStorage.getItem('key')
         console.log('ARE WE GETTING LOCATION ID?!?!', locId);
 
-        $('body').append(`<a class="dButton btn" id="${cityCode}" ><li>${d.name} && ${d.address} && ${d.price} && ${d.website}</li></a>`)
+        $('body').append(`<a class="dButton btn" id="${cityCode} word" ><li>${d.name} && ${d.address} && ${d.price} && ${d.website}</li></a>`)
       // .then(function (d) {
         // wrap these elements in a parent element
         $('.dButton').on('click', function await (event) {
