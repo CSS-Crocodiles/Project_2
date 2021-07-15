@@ -20,26 +20,26 @@ module.exports = (db) => {
         user_id: 2
       }).then(() => {
         db.Restaurant.create({
-          restaurant_name: 'example',
+          restaurant_name: 'Mad Hatter',
           address: 'sample location',
           price_level: 1,
-          hours: 'Monday: Closed Tuesday: 4:00 – 10:00 PM Wednesday: 4:00 – 10:00 PM Thursday: 4:00 – 10:00 PM Friday: 4:00 – 10:00 PM Saturday: 11:00 AM – 3:00 PM, 4:00 – 10:00 PM Sunday: 11:00 AM – 3:00 PM',
+          website: 'www.madhatterbakeshop.com/',
           LocationId: 1
         }).then(() => {
           db.Trails.create({
             id: 1,
             trail_name: 'sample trail',
             address: '1234 pretty trail lane',
-            LocationId: 1,
-            hours: 'Monday: Closed Tuesday: 4:00 – 10:00 PM Wednesday: 4:00 – 10:00 PM Thursday: 4:00 – 10:00 PM Friday: 4:00 – 10:00 PM Saturday: 11:00 AM – 3:00 PM, 4:00 – 10:00 PM Sunday: 11:00 AM – 3:00 PM',
-            price_level: 1
+            price_level: 1,
+            website: 'www.sampletrail.com/',
+            LocationId: 1
           }).then(() => {
             db.Parks.create({
               id: 1,
               park_name: 'sample park',
               address: '1234 pretty park lane',
               LocationId: 1,
-              hours: 'Monday: Closed Tuesday: 4:00 – 10:00 PM Wednesday: 4:00 – 10:00 PM Thursday: 4:00 – 10:00 PM Friday: 4:00 – 10:00 PM Saturday: 11:00 AM – 3:00 PM, 4:00 – 10:00 PM Sunday: 11:00 AM – 3:00 PM',
+              website: 'www.samplepark.com/',
               price_level: 10
             }).then(() => {
               db.Museums.create({
@@ -47,7 +47,7 @@ module.exports = (db) => {
                 museum_name: 'the best museum',
                 address: '1234 pretty museum',
                 price_level: 20,
-                hours: 'Monday: Closed Tuesday: 4:00 – 10:00 PM Wednesday: 4:00 – 10:00 PM Thursday: 4:00 – 10:00 PM Friday: 4:00 – 10:00 PM Saturday: 11:00 AM – 3:00 PM, 4:00 – 10:00 PM Sunday: 11:00 AM – 3:00 PM',
+                website: 'www.thebestmuseum.com/',                
                 LocationId: 1
               });
             });

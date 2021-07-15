@@ -18,7 +18,11 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    hours: {
+    // hours: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true
+    // },
+    website: {
       type: DataTypes.STRING,
       allowNull: true
     },

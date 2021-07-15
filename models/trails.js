@@ -18,8 +18,12 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    hours: {
-      type: DataTypes.STRING,
+    // hours: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true
+    // },
+    website: {
+      type: DataTypes.TEXT,
       allowNull: true
     },
     LocationId: {

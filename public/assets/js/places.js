@@ -67,7 +67,7 @@ const newTripHandler = async (event) => {
       data.map(d => {
         const choicesList = document.getElementById('choices-list')
 
-        $('body').append(`<li>${d.name}</li>`)
+        $('body').append(`<li>${d.name}${d.address}${d.price}${d.website}</li>`)
       })
       // const googleList = data
       // googleData.push(data);
