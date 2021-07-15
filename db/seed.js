@@ -20,7 +20,7 @@ module.exports = (db) => {
         user_id: 2
       }).then(() => {
         db.Restaurant.create({
-          restaurant_name: 'Mad Hatter',
+          name: 'Mad Hatter',
           address: 'sample location',
           price_level: 1,
           website: 'www.madhatterbakeshop.com/',
@@ -28,7 +28,7 @@ module.exports = (db) => {
         }).then(() => {
           db.Trails.create({
             id: 1,
-            trail_name: 'sample trail',
+            name: 'sample trail',
             address: '1234 pretty trail lane',
             price_level: 1,
             website: 'www.sampletrail.com/',
@@ -36,7 +36,7 @@ module.exports = (db) => {
           }).then(() => {
             db.Parks.create({
               id: 1,
-              park_name: 'sample park',
+              name: 'sample park',
               address: '1234 pretty park lane',
               LocationId: 1,
               website: 'www.samplepark.com/',
@@ -44,7 +44,7 @@ module.exports = (db) => {
             }).then(() => {
               db.Museums.create({
                 id: 1,
-                museum_name: 'the best museum',
+                name: 'the best museum',
                 address: '1234 pretty museum',
                 price_level: 20,
                 website: 'www.thebestmuseum.com/',                
