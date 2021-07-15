@@ -3,16 +3,16 @@
 <form class= "container #607d8b blue-grey text-white">
   <h2 for="exampledestination" class="center-align">Set Your Travel Dates</h2>
   <label for="date_from" class= "text-white">From</label>
-  <input type="date" class="datepicker">
+  <input type="date" class="datepicker" id = "inputStart">
 
   <label for="date_to" class= "text-white">To</label>
-  <input type="date" class="datepicker">
+  <input type="date" class="datepicker" id = "inputEnd">
 
 <br><br>
 
   <div class="form-group">
     <h2 for="exampledestination" class="center-align" >Where Are You Traveling To ?</h2>
-    <input type="destination" class="form-control" id="exampleInputDestination" aria-describedby="" placeholder="Enter travel destination">
+    <input type="destination" class="form-control" id="inputFirst" aria-describedby="" placeholder="Enter travel destination">
     <small id="emailHelp" class="form-text text-white">We'll Never Share Your Location With Anyone Else. (Unless You Want Us Too!)</small>
   </div>
 
@@ -31,15 +31,15 @@
 
 <br><br>
 
-<a class="waves-effect waves-light btn">Submit <i class="fas fa-bus"></i></a>
+<a class="waves-effect waves-light btn" id="add-location">Submit <i class="fas fa-bus"></i></a>
 
 </form>
-<script> 
+{{!-- <script> 
   $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
         
-</script>
+</script> --}}
         
 {{> footer/footer }}

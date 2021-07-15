@@ -34,7 +34,11 @@ module.exports = function (db) {
     // first ask where do you want to go? - that could create this location
     createLocation: function (req, res) {
       console.log('THE DATA COMING IN ', req.body);
-      db.Location.create({ ...req.body, user_id: req.session.passport.user.id }).then(function (dbNewLoc) {
+      db.Location.create({ 
+        location_name: req.body.location_name,
+        starting_date: req.body.starting_date,
+        ending_date: req.body.ending_date,
+        user_id: req.session.passport.user.id }).then(function (dbNewLoc) {
         console.log('HERE IS THE NEW LOCATION DATA: ', dbNewLoc);
         res.json(dbNewLoc);
       });
