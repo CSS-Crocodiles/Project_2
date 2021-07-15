@@ -33,45 +33,15 @@ const newTripHandler = async (event) => {
       console.log(`--> FIRST RESPONSE:  `, response);
       return response.json();
     }).then(function (data) {
-      /*
-      console.log('RESPONSE DATA - ALL:  ', data);
-      for (let i = 0; i < data.length; i++) {
-        const placeAddress = data.data.result[i].formatted_address;
-        const placeName = data.data.result[i].name;
-        const placeHoursMonday = data.data.result[i].opening_hours.weekday_text[0];
-        const placeHoursTuesday = data.data.result[i].opening_hours.weekday_text[1];
-        const placeHoursWednesday = data.data.result[i].opening_hours.weekday_text[2];
-        const placeHoursThursday = data.data.result[i].opening_hours.weekday_text[3];
-        const placeHoursFriday = data.data.result[i].opening_hours.weekday_text[4];
-        const placeHoursSaturday = data.data.result[i].opening_hours.weekday_text[5];
-        const placeHoursSunday = data.data.result[i].opening_hours.weekday_text[6];
-        for (let i = 0; i < data.data.result[i].price_level; i++) {
-          placePriceLevelEmojied += '＄';
-        }
-        const placePriceLevel = data.data.result[i].price_level;
-        const placeWebsite = data.data.result[i].website;
-        console.log(`FINAL RESULTS:\nNAME:  ${placeName}\nADDRESS:  ${placeAddress}`);
-        console.log(`HOURS:\n    MONDAY: ${placeHoursMonday}`);
-        console.log(`    TUESDAY: ${placeHoursTuesday}`);
-        console.log(`    WEDNESDAY: ${placeHoursWednesday}`);
-        console.log(`    THURSDAY: ${placeHoursThursday}`);
-        console.log(`    FRIDAY: ${placeHoursFriday}`);
-        console.log(`    SATURDAY: ${placeHoursSaturday}`);
-        console.log(`    SUNDAY: ${placeHoursSunday}`);
-        console.log(`PRICE LEVEL:  ${placePriceLevelEmojied}`);
-        console.log(`WEBSITE ADDRESS:  <a href="${placeWebsite}" target="_blank" rel="noopener noreferrer"</a>`);
-      }
-      console.log('RESPOSNE DATA - FIRST RESULT, NAME:  ', data.data.results[0].name);
-      */
-      // const data = placeDataCollection
-      // console.log(`******RESPONSE DATA:  DATA LOAD - all:  `, data);
+
       console.log(`RESPONSE DATA:  DATA LOAD - all:  `, data);
 
       data.map(async d => {
 
         const choicesList = document.getElementById('listedItems1')
         const cityCode = d.place_id
-
+        let locId = localStorage.getItem('key')
+        console.log('ARE WE GETTING LOCATION ID?!?!', locId);
 
         $('body').append(`<a class="dButton btn" id="${cityCode}" ><li>${d.name} && ${d.address} && ${d.price} && ${d.website}</li></a>`)
       // .then(function (d) {
@@ -84,9 +54,10 @@ const newTripHandler = async (event) => {
             address: d.address,
             price_level: d.price,
             website: d.website,
+            LocationId: locId,
           };
           console.log('new MUSEUM:', newParameter);
-          console.log('WHAT IS LENGTH HERE:', newParameter.name.length);
+          console.log('ARE WE GETTING LOCATION ID?!?!', locId);
         
           if (newParameter.name.length > 0 && newParameter.address.length > 0 && newParameter.website.length > 0 && parameter == 'museum') {
             $.ajax({
@@ -180,3 +151,37 @@ document.querySelector('#add-interest').addEventListener('click', newTripHandler
         //     $('#create-err-msg').empty('').text('**Please fill out entire form**');
         //   }
         // });
+
+        
+      /*
+      console.log('RESPONSE DATA - ALL:  ', data);
+      for (let i = 0; i < data.length; i++) {
+        const placeAddress = data.data.result[i].formatted_address;
+        const placeName = data.data.result[i].name;
+        const placeHoursMonday = data.data.result[i].opening_hours.weekday_text[0];
+        const placeHoursTuesday = data.data.result[i].opening_hours.weekday_text[1];
+        const placeHoursWednesday = data.data.result[i].opening_hours.weekday_text[2];
+        const placeHoursThursday = data.data.result[i].opening_hours.weekday_text[3];
+        const placeHoursFriday = data.data.result[i].opening_hours.weekday_text[4];
+        const placeHoursSaturday = data.data.result[i].opening_hours.weekday_text[5];
+        const placeHoursSunday = data.data.result[i].opening_hours.weekday_text[6];
+        for (let i = 0; i < data.data.result[i].price_level; i++) {
+          placePriceLevelEmojied += '＄';
+        }
+        const placePriceLevel = data.data.result[i].price_level;
+        const placeWebsite = data.data.result[i].website;
+        console.log(`FINAL RESULTS:\nNAME:  ${placeName}\nADDRESS:  ${placeAddress}`);
+        console.log(`HOURS:\n    MONDAY: ${placeHoursMonday}`);
+        console.log(`    TUESDAY: ${placeHoursTuesday}`);
+        console.log(`    WEDNESDAY: ${placeHoursWednesday}`);
+        console.log(`    THURSDAY: ${placeHoursThursday}`);
+        console.log(`    FRIDAY: ${placeHoursFriday}`);
+        console.log(`    SATURDAY: ${placeHoursSaturday}`);
+        console.log(`    SUNDAY: ${placeHoursSunday}`);
+        console.log(`PRICE LEVEL:  ${placePriceLevelEmojied}`);
+        console.log(`WEBSITE ADDRESS:  <a href="${placeWebsite}" target="_blank" rel="noopener noreferrer"</a>`);
+      }
+      console.log('RESPOSNE DATA - FIRST RESULT, NAME:  ', data.data.results[0].name);
+      */
+      // const data = placeDataCollection
+      // console.log(`******RESPONSE DATA:  DATA LOAD - all:  `, data);

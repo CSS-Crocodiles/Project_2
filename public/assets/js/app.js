@@ -176,7 +176,7 @@ $('#add-location').on('click', function (event) {
         const targetIndex = response.filter(locationData => (locationData.location_name === newLocation.location_name && locationData.starting_date === newLocation.starting_date && locationData.ending_date === newLocation.ending_date));
         console.log("----HEORNIEROHE ------", targetIndex);
         console.log("ID PLEASE", targetIndex[0].id);
-        localStorage.setItem(targetIndex[0].location_name, targetIndex[0].id)
+        localStorage.setItem('key', targetIndex[0].id)
       });
       return false;
     });

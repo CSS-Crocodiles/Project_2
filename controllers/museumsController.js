@@ -29,17 +29,17 @@ module.exports = function (db) {
     },
     // NOW ON createController.js
     createMuseum: function (req, res) {
-      console.log('THE DATA COMING IN ', req.params.id);
-      db.Location.findOne({
-        where: { id: req.params.id },
-        order: [ [ 'createdAt', 'DESC' ]],
-    });
+    //   console.log('THE DATA COMING IN ', req.params.id);
+    //   db.Location.findOne({
+    //     where: { id: req.params.id },
+    //     order: [ [ 'createdAt', 'DESC' ]],
+    // });
       console.log('MUSEUMS? ', db.Museums)
       db.Museums.create({ 
         name: req.body.name,
         address: req.body.address,
         website: req.body.ending_date,
-        LocationId: req.params.id })
+        LocationId: req.body.locId })
         .then(function (newMuseum) {
           res.json(newMuseum);
         });
