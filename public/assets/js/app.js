@@ -168,3 +168,9 @@ $('#add-location').on('click', function (event) {
     $('#create-err-msg').empty('').text('**Please fill out entire form**');
   }
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems, options);
+});
