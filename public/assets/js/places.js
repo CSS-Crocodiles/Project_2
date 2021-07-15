@@ -72,10 +72,11 @@ const newTripHandler = async (event) => {
         const choicesList = document.getElementById('listedItems1')
         const cityCode = d.place_id
 
-        $('body').append(`<a class="dButton john waves-effect waves-light btn" id="${cityCode}" ></a><li>${d.name} || ${d.address} || ${d.price} || ${d.website}</li>`)
-      console.log("the id for the button: ", cityCode)
+
+        $('body').append(`<a class="dButton btn" id="${cityCode}" ><li>${d.name} && ${d.address} && ${d.price} && ${d.website}</li></a>`)
       // .then(function (d) {
-        $('.dButton').on('click', function await (event) {
+        // wrap these elements in a parent element
+        $('#cityCode').on('click', function await (event) {
           event.preventDefault();
           console.log("BUtton Clicked on -", cityCode)
           const newParameter = {
@@ -145,3 +146,37 @@ const newTripHandler = async (event) => {
 document.querySelector('#add-interest').addEventListener('click', newTripHandler);
 
 
+// TRIED USING THIS TO GET SINGLE MUSEUM, WHICH IT DID BUT DIDNT RETURN DATA
+        // // const grandParent = `<ul>${parent}</ul>`
+        // const list = `<li class = "paramInfo">${d.name} && ${d.address} && ${d.price} && ${d.website}</li>`
+        // const parent = `<a class="dButton btn" id="${cityCode}" >${list}</a>`
+
+        // $('body').append(`${parent}`)
+
+        // $('.dButton').on('click', function await (event) {
+        //   event.preventDefault();
+        //   let rowChild = $(this).children(".paramInfo")
+        //   const tryParameter = {
+        //     name: rowChild.name,
+        //     address: rowChild.address,
+        //     price_level: rowChild.price,
+        //     website: rowChild.website,
+        //   };
+        //   console.log('new MUSEUM:', tryParameter);
+        //   console.log('WHAT IS LENGTH HERE:', tryParameter.name.length);
+
+        //   if (tryParameter.name.length > 0 && tryParameter.address.length > 0 && tryParameter.website.length > 0 && parameter == 'museum') {
+        //     $.ajax({
+        //       type: 'POST',
+        //       url: 'api/location/:id/museums',
+        //       data: tryParameter
+        //     }).then(() => {
+        //       // console.log('newLocation:', newLocation);
+        //       // window.location.href = '/create';
+        //       return false;
+        //     });
+        //   } else {
+        //     console.log('**NEED MORE INFO**');
+        //     $('#create-err-msg').empty('').text('**Please fill out entire form**');
+        //   }
+        // });

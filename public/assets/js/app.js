@@ -161,6 +161,7 @@ $('#add-location').on('click', function (event) {
     }).then(() => {
       // console.log('newLocation:', newLocation);
       // window.location.href = '/create';
+      console.log('****OUR NEW LOCATION?!?!', newLocation)
       return false;
     });
   } else {
