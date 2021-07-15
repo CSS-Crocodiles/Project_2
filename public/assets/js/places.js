@@ -67,13 +67,70 @@ const newTripHandler = async (event) => {
       // console.log(`******RESPONSE DATA:  DATA LOAD - all:  `, data);
       console.log(`RESPONSE DATA:  DATA LOAD - all:  `, data);
 
-      data.map(d => {
+      data.map(async d => {
 
         const choicesList = document.getElementById('listedItems1')
+        const cityCode = d.place_id
 
-
-        $('body').append(`<li>${d.name} || ${d.address} || ${d.price} || ${d.website}</li>`)
+        $('body').append(`<a class="dButton john waves-effect waves-light btn" id="${cityCode}" ></a><li>${d.name} || ${d.address} || ${d.price} || ${d.website}</li>`)
+      console.log("the id for the button: ", cityCode)
+      // .then(function (d) {
+        $('.dButton').on('click', function await (event) {
+          event.preventDefault();
+          console.log("BUtton Clicked on -", cityCode)
+          const newParameter = {
+            name: d.name,
+            address: d.address,
+            price_level: d.price,
+            website: d.website,
+          };
+          console.log('new MUSEUM:', newParameter);
+          console.log('WHAT IS LENGTH HERE:', newParameter.name.length);
+        
+          if (newParameter.name.length > 0 && newParameter.address.length > 0 && newParameter.website.length > 0 && parameter == 'museum') {
+            $.ajax({
+              type: 'POST',
+              url: 'api/location/:id/museums',
+              data: newParameter
+            }).then(() => {
+              // console.log('newLocation:', newLocation);
+              // window.location.href = '/create';
+              return false;
+            });
+          } else {
+            console.log('**NEED MORE INFO**');
+            $('#create-err-msg').empty('').text('**Please fill out entire form**');
+          }
+        })
+      // })
       })
+
+      // $('#cityCode').on('click', function (event) {
+      //   event.preventDefault();
+      //   console.log("BUtton Clicked on -", cityCode)
+      //   const newParameter = {
+      //     name: $(data.name),
+      //     address: $(data.address),
+      //     price_level: $(data.price),
+      //     website: $(data.website),
+      //   };
+      //   console.log('new MUSEUM:', newParameter);
+      
+      //   if (newParameter.name.length > 0 && newLocation.address.length > 0 && newLocation.price_level.length > 0 && newLocation.website.length > 0 && parameter == 'museum') {
+      //     $.ajax({
+      //       type: 'POST',
+      //       url: 'api/location/:id/museums',
+      //       data: newParameter
+      //     }).then(() => {
+      //       // console.log('newLocation:', newLocation);
+      //       // window.location.href = '/create';
+      //       return false;
+      //     });
+      //   } else {
+      //     console.log('**NEED MORE INFO**');
+      //     $('#create-err-msg').empty('').text('**Please fill out entire form**');
+      //   }
+      // });
       // const googleList = data
       // googleData.push(data);
       // console.log(`#*#*# GOOGLE CONST #*#*#  `, googleData);
