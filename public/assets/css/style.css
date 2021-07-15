@@ -182,17 +182,19 @@ h1 {
   display: flex;
   justify-content: center;
   align-content: center;
+  padding-top: 2%;
 }
 
 .saved {
-  background-color: var(--dash);
-  color: black;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .sta {
   text-align: center;
   margin: 2%;
-  display: grid;
   border-radius: 10px;
 }
 
