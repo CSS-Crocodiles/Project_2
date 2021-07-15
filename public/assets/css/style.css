@@ -293,3 +293,8 @@ body {
 .img1 {
 
 }
+
+.profileCard {
+  align-items: center;
+  justify-content: center;
+}
