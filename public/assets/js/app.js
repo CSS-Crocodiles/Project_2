@@ -186,4 +186,9 @@ $('#add-location').on('click', function (event) {
   }
 });
 
-//.then(get location from userid where startdate and end date and location )
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems, options);
+});
