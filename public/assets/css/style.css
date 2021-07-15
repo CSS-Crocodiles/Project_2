@@ -23,7 +23,7 @@
 
 .lefty {
   margin-top: 2%;
-  background-color: white;
+  border-radius: 10px;
 }
 
 .search {
@@ -285,3 +285,11 @@ body {
   color: var(--text) !important;
 }
 
+.listedItems1 {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.john {
+  margin-top: 2%;
+}
