@@ -1,11 +1,10 @@
 {{> nav/nav-block}}
 
 
-<div class="main container">
+<div class="container">
   <div class="row">
     <div class="lefty col s6">
       <div class="jumbotron text-center header-wrap" align="center">
-        <p class="lead">What's good <strong>TRAVELERS</strong></p>
         <hr class="my-4">
         <div>
           {{#if isloggedin}}
@@ -13,12 +12,12 @@
             <p class="panther"></p>
             <div><a href="/logout"> <button type="btn" class="btn">Leave us....</button></a></div>
           {{else}}
-            <div class="col s6">
-              <p>Login <a class="nav-link" href="/login"><button class="btn">HERE</button></a> before continuing.</p>
+            <div class="container">
+              <div class="row">
+                <h1>Welcome to Our Website</h1>
+                <div>This is where we would like you invite you to explore with us! Please enjoy a wonderful Carolina's worth of adventuring and remember to stay safe!</div>
               </div>
-            <div class="col s6">
-              <p>Enjoy a new passion and apply <a class="nav-link" href="/register"><button class="btn">HERE</button></a></p>
-              </div>
+            </div>
           {{/if}}
           <h5 id="login-err-msg"></h5>
         </div>
