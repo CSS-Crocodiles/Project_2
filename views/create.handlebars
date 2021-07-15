@@ -29,7 +29,7 @@
 <form>
     <div>
   <h2 class="center-align">What Activities Peak Your Interest ?</h2>
-  <select class="browser-default" >
+  <select class="browser-default" id="select1">
     <option value="" disabled selected>Choose Your Activity</option>
     <option value="1">Museums</option>
     <option value="2">Parks</option>
@@ -42,7 +42,7 @@
 
 <br><br>
 
-<a class="john waves-effect waves-light btn" href="/current" id="add-interest">Submit <i class="fas fa-bus"></i></a>
+<a class="john waves-effect waves-light btn" id="add-interest">Submit <i class="fas fa-bus"></i></a>
 
 </div>
 </form>
@@ -50,6 +50,8 @@
   <div class="listedItems1 container blue-grey text-white">
     <h2 class="center">Choose From Below</h2>
     {{> rendered/rendered }}
+
+    <div id="listedItems1"></div>
   </div>
 
 
