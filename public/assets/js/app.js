@@ -156,7 +156,7 @@ $('#add-location').on('click', function (event) {
   if (newLocation.location_name.length > 0 && newLocation.starting_date.length > 0 && newLocation.ending_date.length > 0) {
     $.ajax({
       type: 'POST',
-      url: '/api/location',
+      url: '/api/location/:id',
       data: newLocation
     }).then(() => {
       // console.log('newLocation:', newLocation);
