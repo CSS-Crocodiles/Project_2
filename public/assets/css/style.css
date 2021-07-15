@@ -190,10 +190,11 @@ h1 {
   color: black;
 }
 
-.sta, .stb, .stc, .std {
-  background-color: var(--stgroup);
+.sta {
+  text-align: center;
   margin: 2%;
   display: grid;
+  border-radius: 10px;
 }
 
 #update-user, #delete-user, #view-user {
@@ -221,9 +222,6 @@ h3 {
 }
 
 
-.newfound {
-  background-color: var(--dash);
-}
 
 body {
   margin: 0;
