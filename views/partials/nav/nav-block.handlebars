@@ -6,7 +6,7 @@
         <div class="nav-content">
           <ul class="tabs">
             {{#if isloggedin}}
-
+            <li class="tab"><a href="/dashboard"><button class="btn-nav animate__animated animate__rubberBand">Dashboard <i class="fas fa-door-open"></i></button></a></li>
             <li class="tab"><a href="/create"><button class="btn-nav animate__animated animate__rubberBand ">Create Your Next Trip <i class="fas fa-map-pin"></i></button></a></li>
             <li class="tab"><a href="/current"><button class="btn-nav animate__animated animate__rubberBand ">Current Trip <i class="fas fa-car"></i></button></a></li>
             <li class="tab"><a href="/savedtrips"><button class="btn-nav animate__animated animate__rubberBand">Saved Trips <i class="fas fa-suitcase-rolling"></i></button></a></li>
@@ -14,8 +14,9 @@
             <li class="tab"><a href="/NCDis"><button class="btn-nav animate__animated animate__rubberBand">NCDis <i class="fas fa-project-diagram"></i></button></a></li>
             <li class="tab"><a href="/logout"><button class="btn-nav animate__animated animate__rubberBand ">Logout <i class="fas fa-sign-out-alt"></i></button></a></li>
             {{else}}
-            <li class="tab"><a href="/example"><button class="btn-nav animate__animated animate__rubberBand">Example Page <i class="far fa-bookmark"></i></button></a></li>
-            <li class="tab"><a href="/dashboard"><button class="btn-nav animate__animated animate__rubberBand">Dashboard <i class="fas fa-door-open"></i></button></a></li>
+            <li class="tab"><a href="/dashboard"><button class="btn-nav animate__animated animate__rubberBand">Dashboard <i class="fas fa-home"></i></button></a></li>
+            <li class="tab"><a href="/login"><button class="btn-nav animate__animated animate__rubberBand">Login <i class="far fa-bookmark"></i></button></a></li>
+            <li class="tab"><a href="/register"><button class="btn-nav animate__animated animate__rubberBand">Register <i class="fas fa-door-open"></i></button></a></li>
             {{/if}}
           </ul> 
         </div>
