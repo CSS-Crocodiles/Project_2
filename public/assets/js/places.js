@@ -13,7 +13,7 @@ console.log(`--> places.js IS RUNNING`);
 const newTripHandler = async (event) => {
   event.preventDefault();
   console.log(`--> SUBMIT button was clicked`);
-  const city = document.getElementById('example-text').value.trim();
+  const city = document.getElementById('inputFirst').value.trim();
   // const state = document.querySelector('#example-description').value.trim();
   const parameter = dropdownParameter.options[dropdownParameter.selectedIndex].text.toLowerCase();
   console.log(`--> paramter VALUE:  `, document.getElementById('example-parameter').value);

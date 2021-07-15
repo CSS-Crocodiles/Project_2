@@ -1,19 +1,14 @@
 {{> nav/nav-block}}
 
-<form class= "container #607d8b blue-grey text-white">
+
+
+<div class= "container #607d8b blue-grey text-white">
+  <form>
   <h2 for="exampledestination" class="center-align">Set Your Travel Dates</h2>
   <label for="date_from" class= "text-white">From</label>
-<<<<<<< HEAD
-  <input type="date" class="datepicker" id="inputStart">
-
-  <label for="date_to" class= "text-white">To</label>
-  <input type="date" class="datepicker" id="inputEnd">
-=======
   <input type="date" class="datepicker" id = "inputStart">
-
   <label for="date_to" class= "text-white">To</label>
   <input type="date" class="datepicker" id = "inputEnd">
->>>>>>> 27e2ed90e968f5982b3ed900277236867c66fbdc
 
 <br><br>
 
@@ -27,7 +22,7 @@
 
   <div>
   <h2 class="center-align">What Activities Peak Your Interest ?</h2>
-  <select class="browser-default">
+  <select class="browser-default" >
     <option value="" disabled selected>Choose Your Activity</option>
     <option value="1">Museums</option>
     <option value="2">Parks</option>
@@ -36,12 +31,22 @@
   </select>
   </div>
 
-<br><br>
 
+
+<br><br>
 <a class="waves-effect waves-light btn" href="/current" id="add-location">Submit <i class="fas fa-bus"></i></a>
 
 
 </form>
+</div>
+
+
+  <div class="listedItems1 container blue-grey text-white">
+    <h2 class="center">Choose From Below</h2>
+    {{> rendered/rendered }}
+  </div>
+
+
 {{!-- <script> 
   ('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month

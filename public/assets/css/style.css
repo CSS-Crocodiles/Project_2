@@ -285,3 +285,7 @@ body {
   color: var(--text) !important;
 }
 
+.listedItems1 {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
