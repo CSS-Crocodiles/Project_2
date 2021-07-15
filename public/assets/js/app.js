@@ -1,4 +1,4 @@
-console.log('RUNNING')
+// console.log('RUNNING')
 
 $('#add-user').on('click', function (event) {
   event.preventDefault();
