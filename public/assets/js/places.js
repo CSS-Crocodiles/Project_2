@@ -5,7 +5,9 @@ const requestOptions = {
   redirect: 'follow'
 };
 let placePriceLevelEmojied;
+
 const dropdownParameter = document.getElementById('select1');
+
 const googleData = []
 
 console.log(`--> places.js IS RUNNING`);
@@ -66,7 +68,9 @@ const newTripHandler = async (event) => {
       console.log(`RESPONSE DATA:  DATA LOAD - all:  `, data);
 
       data.map(d => {
+
         const choicesList = document.getElementById('listedItems1')
+
 
         $('body').append(`<li>${d.name}${d.address}${d.price}${d.website}</li>`)
       })
