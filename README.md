@@ -4,8 +4,8 @@
 ### **TABLE OF CONTENTS:**
 1. [Overview](#1-overview)
 2. [Installation](#2-installation)
-3. [second thing](#3-)
-4. [another](#4-)
+3. [Preview](#3-preview)
+4. [Deployed Site](#4-deployed-site)
 5. [Contributors](#5-contributors)
 6. [Questions](#6-questions)
 7. [License for Repository](#7-license)
@@ -30,12 +30,12 @@ An original npm install and npm intialize will need to be ran in the user's term
 
 ## 3. Preview
 
-  ADD PHOTO OF DEPLOYED SITE HERE
+  ![Travelers Landing](public\website.png)
 
 
 ## 4. Deployed Site
 
-[Travelers Landing]()
+[Travelers Landing](https://dream-vacation2021.herokuapp.com/)
 
 ## 5. Contributors
 
