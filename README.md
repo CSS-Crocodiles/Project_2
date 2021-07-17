@@ -30,7 +30,7 @@ An original npm install and npm intialize will need to be ran in the user's term
 
 ## 3. Preview
 
-  ![Travelers Landing](public\website.png)
+  ![Travelers Landing](public/website.png)
 
 
 ## 4. Deployed Site
