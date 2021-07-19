@@ -5,10 +5,12 @@ const requestOptions = {
   redirect: 'follow'
 };
 let placePriceLevelEmojied;
+const locId = 0;
+let buttonId;
 
 const dropdownParameter = document.getElementById('select1');
 
-const googleData = []
+const googleData = [];
 
 console.log(`--> places.js IS RUNNING`);
 
@@ -20,7 +22,7 @@ const newTripHandler = async (event) => {
   const parameter = dropdownParameter.options[dropdownParameter.selectedIndex].text.toLowerCase();
   console.log(`--> paramter VALUE:  `, document.getElementById('select1').value);
   console.log(`--> parameter TEXT:  `, parameter);
-  console.log(`--> parameter CITY:  `, city)
+  console.log(`--> parameter CITY:  `, city);
   if (city && parameter) {
     fetch(`/api/getGoogleData`, {
       method: 'POST',
@@ -29,53 +31,86 @@ const newTripHandler = async (event) => {
         'Content-Type': 'application/json'
       }
     }).then(function (response) {
-      //console.log(`******RESPONSE DATA:  DATA LOAD - all:  `, response.json());
+      // console.log(`******RESPONSE DATA:  DATA LOAD - all:  `, response.json());
       console.log(`--> FIRST RESPONSE:  `, response);
       return response.json();
     }).then(function (data) {
-
       console.log(`RESPONSE DATA:  DATA LOAD - all:  `, data);
 
       data.map(async d => {
+        const choicesList = document.getElementById('listedItems1');
+        const cityCode = d.place_id;
+        buttonId = cityCode.substring(8);
+        const locId = localStorage.getItem('key');
+        console.log('ARE WE GETTING LOCATION ID?!?!', locId);
+        // CARD CREATION
+        $('#results-container').append(`
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title" id="results-card-title">${d.name}</h5>
+          </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Address:  ${d.address}</li>
+              <li class="list-group-item">Price:  ${d.price}</li>
+              <li class="list-group-item">Website:  <a href="${d.website}" target="_blank" rel="noopener noreferrer">${d.website}</a></li>
+            </ul>
+          <div class="card-body" id="button-body">
+            <!--BUTTON HERE-->
+            <button type="button" class="btn btn-success dButton" id="${buttonId}">Save</button>
+          </div>
+        </div>`);
+        // BUTTON CREATION
+        // this works --> .append(`<a class="dButton btn" id="${buttonId}" ><li>${d.name} && ${d.address} && ${d.price} && ${d.website}</li></a>`);
+        // document.getElementById('button-body').append(`<button type="button" class="btn btn-success dButton" id="${buttonId}">Save</button>`);
+        // .then(function (d) {
+        // wrap these elements in a parent element
 
-        const choicesList = document.getElementById('listedItems1')
-        const cityCode = d.place_id
-        let locId = localStorage.getItem('key')
+        /*
+        $('.dButton').on('click', function (event) {
+          event.preventDefault();
+          const buttonClicked = event.target;
+          const buttonClickedId = event.target.id;
+          // console.log("BUtton Clicked on -", cityCode)
+          console.log('--> BUTTON CLICKED:  ', buttonClicked);
+          console.log('--> BUTTON CLICKED ID:  ', buttonClickedId);
+        */ // I think this is causing the button to return all values of the button clicked and the ones below it
+        // I think it just needs to go outside the loop
+        const newParameter = {
+          name: d.name,
+          address: d.address,
+          price_level: d.price,
+          website: d.website,
+          LocationId: parseInt(locId)
+        };
+        console.log('new MUSEUM:', newParameter);
+        console.log('--> parseInt:  ', newParameter.LocationId);
+        console.log('--> parseInt.type:  ', typeof newParameter.LocationId);
         console.log('ARE WE GETTING LOCATION ID?!?!', locId);
 
-        $('body').append(`<a class="dButton btn" id="${cityCode} word" ><li>${d.name} && ${d.address} && ${d.price} && ${d.website}</li></a>`)
-      // .then(function (d) {
-        // wrap these elements in a parent element
-        $('.dButton').on('click', function await (event) {
-          event.preventDefault();
-          console.log("BUtton Clicked on -", cityCode)
-          const newParameter = {
-            name: d.name,
-            address: d.address,
-            price_level: d.price,
-            website: d.website,
-            LocationId: locId,
-          };
-          console.log('new MUSEUM:', newParameter);
-          console.log('ARE WE GETTING LOCATION ID?!?!', locId);
-        
-          if (newParameter.name.length > 0 && newParameter.address.length > 0 && newParameter.website.length > 0 && parameter == 'museum') {
-            $.ajax({
-              type: 'POST',
-              url: 'api/location/:id/museums',
-              data: newParameter
-            }).then(() => {
-              // console.log('newLocation:', newLocation);
-              // window.location.href = '/create';
-              return false;
-            });
-          } else {
-            console.log('**NEED MORE INFO**');
-            $('#create-err-msg').empty('').text('**Please fill out entire form**');
-          }
-        })
+        if (newParameter.name.length > 0 && newParameter.address.length > 0 && newParameter.website.length > 0 && parameter == 'museum') {
+          $.ajax({
+            type: 'POST',
+            url: 'api/location/:id/museums',
+            data: newParameter
+          }).then(() => {
+            // console.log('newLocation:', newLocation);
+            // window.location.href = '/create';
+            return false;
+          });
+        } else {
+          console.log('**NEED MORE INFO**');
+          $('#create-err-msg').empty('').text('**Please fill out entire form**');
+        }
+      });
+      $('.dButton').on('click', function (event) {
+        event.preventDefault();
+        const buttonClicked = event.target;
+        const buttonClickedId = event.target.id;
+        // console.log("BUtton Clicked on -", cityCode)
+        console.log('--> BUTTON CLICKED:  ', buttonClicked);
+        console.log('--> BUTTON CLICKED ID:  ', buttonClickedId);
       // })
-      })
+      });
 
       // $('#cityCode').on('click', function (event) {
       //   event.preventDefault();
@@ -87,7 +122,7 @@ const newTripHandler = async (event) => {
       //     website: $(data.website),
       //   };
       //   console.log('new MUSEUM:', newParameter);
-      
+
       //   if (newParameter.name.length > 0 && newLocation.address.length > 0 && newLocation.price_level.length > 0 && newLocation.website.length > 0 && parameter == 'museum') {
       //     $.ajax({
       //       type: 'POST',
@@ -106,7 +141,7 @@ const newTripHandler = async (event) => {
       // const googleList = data
       // googleData.push(data);
       // console.log(`#*#*# GOOGLE CONST #*#*#  `, googleData);
-      
+
       // console.log(`RESPOSNE DATA:  DATA LOAD - first:  `, data.placeDataLoad[0]);
       // functionHere(data.results) <-- function to loop through data could go here or in separate function
     });
@@ -116,44 +151,42 @@ const newTripHandler = async (event) => {
 // document.querySelector('.form-group').addEventListener('submit', newTripHandler);
 document.querySelector('#add-interest').addEventListener('click', newTripHandler);
 
-
 // TRIED USING THIS TO GET SINGLE MUSEUM, WHICH IT DID BUT DIDNT RETURN DATA
-        // // const grandParent = `<ul>${parent}</ul>`
-        // const list = `<li class = "paramInfo">${d.name} && ${d.address} && ${d.price} && ${d.website}</li>`
-        // const parent = `<a class="dButton btn" id="${cityCode}" >${list}</a>`
+// // const grandParent = `<ul>${parent}</ul>`
+// const list = `<li class = "paramInfo">${d.name} && ${d.address} && ${d.price} && ${d.website}</li>`
+// const parent = `<a class="dButton btn" id="${cityCode}" >${list}</a>`
 
-        // $('body').append(`${parent}`)
+// $('body').append(`${parent}`)
 
-        // $('.dButton').on('click', function await (event) {
-        //   event.preventDefault();
-        //   let rowChild = $(this).children(".paramInfo")
-        //   const tryParameter = {
-        //     name: rowChild.name,
-        //     address: rowChild.address,
-        //     price_level: rowChild.price,
-        //     website: rowChild.website,
-        //   };
-        //   console.log('new MUSEUM:', tryParameter);
-        //   console.log('WHAT IS LENGTH HERE:', tryParameter.name.length);
+// $('.dButton').on('click', function await (event) {
+//   event.preventDefault();
+//   let rowChild = $(this).children(".paramInfo")
+//   const tryParameter = {
+//     name: rowChild.name,
+//     address: rowChild.address,
+//     price_level: rowChild.price,
+//     website: rowChild.website,
+//   };
+//   console.log('new MUSEUM:', tryParameter);
+//   console.log('WHAT IS LENGTH HERE:', tryParameter.name.length);
 
-        //   if (tryParameter.name.length > 0 && tryParameter.address.length > 0 && tryParameter.website.length > 0 && parameter == 'museum') {
-        //     $.ajax({
-        //       type: 'POST',
-        //       url: 'api/location/:id/museums',
-        //       data: tryParameter
-        //     }).then(() => {
-        //       // console.log('newLocation:', newLocation);
-        //       // window.location.href = '/create';
-        //       return false;
-        //     });
-        //   } else {
-        //     console.log('**NEED MORE INFO**');
-        //     $('#create-err-msg').empty('').text('**Please fill out entire form**');
-        //   }
-        // });
+//   if (tryParameter.name.length > 0 && tryParameter.address.length > 0 && tryParameter.website.length > 0 && parameter == 'museum') {
+//     $.ajax({
+//       type: 'POST',
+//       url: 'api/location/:id/museums',
+//       data: tryParameter
+//     }).then(() => {
+//       // console.log('newLocation:', newLocation);
+//       // window.location.href = '/create';
+//       return false;
+//     });
+//   } else {
+//     console.log('**NEED MORE INFO**');
+//     $('#create-err-msg').empty('').text('**Please fill out entire form**');
+//   }
+// });
 
-        
-      /*
+/*
       console.log('RESPONSE DATA - ALL:  ', data);
       for (let i = 0; i < data.length; i++) {
         const placeAddress = data.data.result[i].formatted_address;
@@ -183,5 +216,5 @@ document.querySelector('#add-interest').addEventListener('click', newTripHandler
       }
       console.log('RESPOSNE DATA - FIRST RESULT, NAME:  ', data.data.results[0].name);
       */
-      // const data = placeDataCollection
-      // console.log(`******RESPONSE DATA:  DATA LOAD - all:  `, data);
+// const data = placeDataCollection
+// console.log(`******RESPONSE DATA:  DATA LOAD - all:  `, data);
