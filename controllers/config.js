@@ -7,8 +7,8 @@ router.get('/', async (req, res) => {
   res.render('dashboard')
 });
 
-router.get('/', async (req, res) => {
-    res.render('main')
-  });
+// router.get('/', async (req, res) => {
+//     res.render('main')
+//   });
 
 module.exports = router;
