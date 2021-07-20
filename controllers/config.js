@@ -4,7 +4,11 @@ const path = require('path');
 // This is the 'get' route 
 router.get('/', async (req, res) => {
   // Here, index.html is rendered
-  res.render('main')
+  res.render('dashboard')
 });
+
+router.get('/', async (req, res) => {
+    res.render('main')
+  });
 
 module.exports = router;
