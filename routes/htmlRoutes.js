@@ -191,30 +191,6 @@ module.exports = (db) => {
 
 // Change to "new" for the handlebars I am creating.
 
-router.get('/NCDis', (req, res, next) => {
-  if (req.isAuthenticated()) {
-    const user = {
-      user: req.session.passport.user,
-      isloggedin: req.isAuthenticated()
-    };
-    res.render('NCDis', user);
-  } else {
-    res.render('NCDis');
-  }
-});
-
-router.get('/materialize', (req, res, next) => {
-  if (req.isAuthenticated()) {
-    const user = {
-      user: req.session.passport.user,
-      isloggedin: req.isAuthenticated()
-    };
-    res.render('materialize', user);
-  } else {
-    res.render('materialize');
-  }
-});
-
 router.get('/savedtrips', (req, res, next) => {
   if (req.isAuthenticated()) {
     const user = {
