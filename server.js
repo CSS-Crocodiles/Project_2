@@ -1,12 +1,14 @@
 const express = require('express');
+const exphbs = require('express-handlebars');
+const hbs = exphbs.create({});
 const path = require('path');
 
-// Sets up the Express App
 const app = express();
 const PORT = process.env.PORT || 3333;
 
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, 'public')));
-// Sets up the routes
 app.use(require('./controllers/config'));
 
 app.listen(PORT, () => {
