@@ -19,6 +19,7 @@
   "homepage": "https://github.com/CSS-Crocodiles/Project_2#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "express-dependencies": "^1.2.2",
     "express-handlebars": "^5.3.2",
     "node": "^16.5.0",
     "nodemon": "^2.0.12"
