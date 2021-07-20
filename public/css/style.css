@@ -1,7 +1,14 @@
+.lisb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .loginForm {
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 10px;
+  border-radius: 10px;
 }
 
 @keyframes loader {
