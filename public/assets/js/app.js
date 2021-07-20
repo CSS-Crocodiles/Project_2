@@ -194,3 +194,8 @@ $('#add-location').on('click', function (event) {
 //   var instances = M.Sidenav.init(elems, options);
 // });
 
+// Adding the script that Hamlet added to the main.  
+
+$(window).on("load",function(){
+  $(".loader-wrapper").fadeOut("slow");
+ });
