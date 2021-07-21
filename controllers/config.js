@@ -4,6 +4,10 @@ router.get('/', async (req, res) => {
   res.render('dashboard');
 });
 
+router.get('/dashboard', async (req, res) => {
+  res.render('dashboard');
+});
+
 // router.get('/', async (req, res) => {
 //     res.render('main')
 //   });
